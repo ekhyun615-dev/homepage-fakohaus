@@ -1,0 +1,103 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { company } from '../data/site';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'FAKOHAUS | 독일 ALC·POROTON 주택',
+  description = 'ALC주택 / POROTON주택 설계·시공, 독일 건축기술 및 프리미엄 자재 공급, 기술 컨설팅. 2001년 설립 ㈜ALCMATE의 독일식 주택 브랜드 FAKOHAUS.',
+  image = '/images/og-default.jpg',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="ALC주택, POROTON주택, 전원주택, 독일주택, FAKOHAUS" />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+
+    <!-- Open Graph / 카카오톡·페이스북 공유 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FAKOHAUS" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site).href} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="ko_KR" />
+
+    <!-- 네이버 웹마스터도구 사이트 소유확인 (발급 후 값 교체) -->
+    <!-- <meta name="naver-site-verification" content="여기에_발급받은_값" /> -->
+    <!-- 구글 서치콘솔 소유확인 (발급 후 값 교체) -->
+    <!-- <meta name="google-site-verification" content="여기에_발급받은_값" /> -->
+
+    <meta name="theme-color" content="#3b0764" />
+
+    <!-- 조직 구조화 데이터(검색 노출용) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'FAKOHAUS',
+      url: Astro.site?.href,
+      description,
+      areaServed: 'KR',
+      telephone: company.tel,
+      email: company.email,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '태장로 741, 경동미르웰시티 534호',
+        addressLocality: '김포시',
+        addressRegion: '경기도',
+        addressCountry: 'KR',
+      },
+    })} />
+  </head>
+  <body>
+    <a href="#main" class="sr-only">본문 바로가기</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <a class="kakao" href={company.kakaoUrl} target="_blank" rel="noopener">💬 카카오톡 상담</a>
+
+    <script>
+      // 공용 탭 스위처: 페이지당 .tabs 그룹이 하나라고 가정, 해시(#tab)로 상태 유지
+      document.querySelectorAll<HTMLElement>('.tabs').forEach((tabsEl) => {
+        const buttons = Array.from(tabsEl.querySelectorAll<HTMLButtonElement>('button'));
+        const panes = Array.from(document.querySelectorAll<HTMLElement>('.tabpane'));
+        if (!buttons.length) return;
+
+        function activate(tab: string | null, updateHash: boolean) {
+          const btn = buttons.find((b) => b.dataset.tab === tab) ?? buttons[0];
+          buttons.forEach((b) => b.classList.toggle('on', b === btn));
+          panes.forEach((p) => p.classList.toggle('on', p.dataset.pane === btn.dataset.tab));
+          if (updateHash) location.hash = btn.dataset.tab ?? '';
+        }
+
+        tabsEl.addEventListener('click', (e) => {
+          const b = (e.target as HTMLElement).closest('button');
+          if (!b) return;
+          activate(b.dataset.tab ?? null, true);
+        });
+
+        activate(location.hash.replace('#', '') || null, false);
+        window.addEventListener('hashchange', () => activate(location.hash.replace('#', ''), false));
+      });
+    </script>
+  </body>
+</html>

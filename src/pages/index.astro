@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { company } from '../data/site';
+---
+
+<BaseLayout>
+  <!-- 히어로: 좌우 분할 -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="hero-eyebrow">Massivhaus aus Deutschland · Since 2001</span>
+        <h1>독일에서 50년,<br><strong>한국에서 100년을 잇는 집</strong></h1>
+        <p>FAKOHAUS는 독일 ALC·POROTON 조적식 주택기술과 프리미엄 독일 건축자재로 짓는, {company.legalName}의 독일식 주택 브랜드입니다.</p>
+        <div class="hero-btns">
+          <a class="btn btn-light" href="/models">주택모델 보기 →</a>
+          <a class="btn btn-outline-light" href="/contact">건축 상담 신청</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>2001<em>년</em></b><small>{company.legalName} 설립</small></div>
+          <div><b>40<em>년+</em></b><small>ALC 기술 경력</small></div>
+          <div><b>100<em>%</em></b><small>독일 정품 자재</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="frame">
+          <svg class="ph" viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="독일식 주택 일러스트">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c4b5fd"/><stop offset="1" stop-color="#ede9fe"/></linearGradient>
+              <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f1e9ff"/></linearGradient>
+            </defs>
+            <rect width="560" height="420" fill="url(#sky)"/>
+            <rect y="330" width="560" height="90" fill="#a78bfa" opacity=".45"/>
+            <polygon points="120,180 300,80 480,180" fill="#3b0764"/>
+            <rect x="140" y="180" width="320" height="150" fill="url(#wall)"/>
+            <rect x="140" y="180" width="320" height="150" fill="none" stroke="#7c3aed" stroke-width="2"/>
+            <polygon points="120,180 300,80 480,180" fill="none" stroke="#2a0549" stroke-width="3"/>
+            <rect x="170" y="210" width="70" height="90" fill="#7c3aed" opacity=".85"/>
+            <rect x="360" y="210" width="70" height="90" fill="#7c3aed" opacity=".85"/>
+            <rect x="265" y="220" width="70" height="110" fill="#4c1d95"/>
+            <rect x="272" y="228" width="56" height="94" fill="#c4b5fd" opacity=".55"/>
+            <rect x="400" y="100" width="26" height="60" fill="#4c1d95"/>
+            <circle cx="70" cy="300" r="34" fill="#7c3aed" opacity=".5"/>
+            <rect x="66" y="300" width="8" height="42" fill="#4c1d95"/>
+            <circle cx="512" cy="290" r="28" fill="#7c3aed" opacity=".4"/>
+            <rect x="509" y="292" width="7" height="40" fill="#4c1d95"/>
+          </svg>
+        </div>
+        <div class="hero-badge">
+          <div class="num">A+</div>
+          <small>독일 기준 단열 성능<br>제로에너지 대응 벽체 시스템</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 서비스/사업 소개: 3열 카드 -->
+  <div class="sec">
+    <div class="wrap">
+      <span class="eyebrow">Unsere Leistungen</span>
+      <h2 class="sec-title">FAKOHAUS가 하는 일</h2>
+      <p class="sec-lead">독일식 조적 주택의 설계·시공부터 프리미엄 독일 건축자재의 수입·판매, 기술 컨설팅까지 — 집의 처음과 끝을 책임집니다.</p>
+      <div class="cards3">
+        <a class="card" href="/frame#alc">
+          <div class="thumb"><svg class="ph" viewBox="0 0 400 250"><rect width="400" height="250" fill="#ede9fe"/><g fill="#c4b5fd"><rect x="60" y="60" width="80" height="40" rx="4"/><rect x="150" y="60" width="80" height="40" rx="4"/><rect x="240" y="60" width="80" height="40" rx="4"/><rect x="105" y="110" width="80" height="40" rx="4"/><rect x="195" y="110" width="80" height="40" rx="4"/><rect x="60" y="160" width="80" height="40" rx="4"/><rect x="150" y="160" width="80" height="40" rx="4"/><rect x="240" y="160" width="80" height="40" rx="4"/></g><rect x="105" y="110" width="80" height="40" rx="4" fill="#7c3aed"/></svg></div>
+          <div class="body">
+            <span class="tag">ALC Massivhaus</span>
+            <h3>ALC주택 신축</h3>
+            <p>독일 Hebel 기술에 뿌리를 둔 ALC 조적식 주택. 가볍고 단열이 뛰어난 친환경 무기질 자재로 결로·곰팡이 없는 건강한 집을 짓습니다.</p>
+            <span class="more">자세히 보기 →</span>
+          </div>
+        </a>
+        <a class="card" href="/frame#poroton">
+          <div class="thumb"><svg class="ph" viewBox="0 0 400 250"><rect width="400" height="250" fill="#ede9fe"/><g fill="none" stroke="#7c3aed" stroke-width="3"><rect x="90" y="55" width="220" height="140" rx="6"/><path d="M120 55v140M150 55v140M180 55v140M210 55v140M240 55v140M270 55v140"/><path d="M90 90h220M90 125h220M90 160h220"/></g><rect x="90" y="55" width="220" height="140" rx="6" fill="#c4b5fd" opacity=".25"/></svg></div>
+          <div class="body">
+            <span class="tag">Poroton Ziegel</span>
+            <h3>POROTON주택 신축</h3>
+            <p>독일 대표 주택 골조인 다공질 점토벽돌 POROTON. 수백 년을 견디는 조적조의 견고함과 뛰어난 축열·차음 성능을 갖췄습니다.</p>
+            <span class="more">자세히 보기 →</span>
+          </div>
+        </a>
+        <a class="card" href="/company#brand">
+          <div class="thumb"><svg class="ph" viewBox="0 0 400 250"><rect width="400" height="250" fill="#ede9fe"/><g><rect x="60" y="70" width="120" height="110" rx="8" fill="#fff" stroke="#c4b5fd" stroke-width="2"/><rect x="220" y="70" width="120" height="110" rx="8" fill="#fff" stroke="#c4b5fd" stroke-width="2"/><circle cx="120" cy="115" r="24" fill="#7c3aed"/><rect x="255" y="95" width="50" height="40" fill="#3b0764"/><rect x="90" y="150" width="60" height="8" rx="4" fill="#c4b5fd"/><rect x="250" y="150" width="60" height="8" rx="4" fill="#c4b5fd"/></g></svg></div>
+          <div class="body">
+            <span class="tag">Premium Import</span>
+            <h3>독일·오스트리아 건축자재</h3>
+            <p>CREATON 점토기와, GAULHOFER 창호, alsecco·Caparol 외단열 마감재 등 프리미엄 자재를 직수입해 정품 그대로 공급합니다.</p>
+            <span class="more">자세히 보기 →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 신뢰 numstrip -->
+  <div class="sec deep" style="padding:80px 0">
+    <div class="wrap">
+      <span class="eyebrow">Warum FAKOHAUS</span>
+      <h2 class="sec-title" style="color:#fff">숫자로 보는 신뢰</h2>
+      <div class="numstrip">
+        <div><b>1985</b><small>쌍용양회 ALC 사업 조사 착수</small></div>
+        <div><b>1990</b><small>독일 Hebel 설비·기술 도입 참여</small></div>
+        <div><b>25<em>년</em></b><small>{company.legalName} 독일식 주택 외길</small></div>
+        <div><b>3<em>개국</em></b><small>독일·오스트리아 파트너 브랜드</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 건축 프로세스 -->
+  <div class="sec tint">
+    <div class="wrap">
+      <span class="eyebrow">Bauprozess</span>
+      <h2 class="sec-title">상담에서 입주까지</h2>
+      <p class="sec-lead">예비 건축주님이 가장 궁금해하시는 진행 순서를 투명하게 안내합니다.</p>
+      <div class="proc">
+        <div><b>STEP 1</b><h4>건축 상담</h4><p>부지 조건·예산·가족 구성에 맞춰 골조와 모델을 함께 검토합니다.</p></div>
+        <div><b>STEP 2</b><h4>설계·견적</h4><p>독일식 상세 설계와 자재 사양서 기반의 투명한 견적을 제시합니다.</p></div>
+        <div><b>STEP 3</b><h4>시공</h4><p>완축 또는 반축(골조+외피) 방식 중 선택해 정밀 시공합니다.</p></div>
+        <div><b>STEP 4</b><h4>준공·사후관리</h4><p>준공 검사와 하자보수 기준을 문서로 명확히 약속합니다.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 고객 후기: 카드 슬라이더 -->
+  <div class="sec">
+    <div class="wrap">
+      <span class="eyebrow">Kundenstimmen</span>
+      <h2 class="sec-title">건축주가 말하는 FAKOHAUS</h2>
+      <div class="slider">
+        <div class="slider-track" id="revTrack">
+          <div class="review"><div class="stars">★★★★★</div><p>"겨울 난방비가 아파트 살 때보다 적게 나옵니다. ALC 벽체의 단열이 이 정도일 줄 몰랐어요. 결로가 전혀 없다는 게 가장 만족스럽습니다."</p><div class="who"><div class="av">김</div><div><b>김○수 님</b><small>경기 양평 · FAKOHAUS 25A</small></div></div></div>
+          <div class="review"><div class="stars">★★★★★</div><p>"반축으로 골조와 외피만 맡기고 내부는 직접 진행했는데, 공정마다 독일 기준으로 검수해 주셔서 믿음이 갔습니다."</p><div class="who"><div class="av">박</div><div><b>박○진 님</b><small>강원 원주 · POROTON 반축</small></div></div></div>
+          <div class="review"><div class="stars">★★★★★</div><p>"CREATON 기와와 GAULHOFER 창호를 실제로 보고 결정했습니다. 자재 하나하나 정품 서류까지 보여주시는 회사는 처음이었어요."</p><div class="who"><div class="av">이</div><div><b>이○호 님</b><small>충남 아산 · FAKOHAUS 25B</small></div></div></div>
+          <div class="review"><div class="stars">★★★★★</div><p>"은퇴 후 살 집이라 100년 가는 구조가 조건이었습니다. 조적식 독일 주택이라는 답을 여기서 찾았습니다."</p><div class="who"><div class="av">최</div><div><b>최○영 님</b><small>경기 김포 · ALC 완축</small></div></div></div>
+        </div>
+        <div class="slider-nav">
+          <button id="revPrev" aria-label="이전 후기">←</button>
+          <button id="revNext" aria-label="다음 후기">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 유튜브 섹션 -->
+  <div class="sec tint">
+    <div class="wrap">
+      <div class="video-grid">
+        <div class="video-frame">
+          <iframe title="FAKOHAUS 유튜브" width="100%" height="100%" style="border:0" src="https://www.youtube.com/embed?listType=user_uploads&list=FAKOHAUS" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div>
+          <span class="eyebrow">YouTube</span>
+          <h2 class="sec-title" style="font-size:clamp(24px,2.8vw,34px)">FAKOHAUS 채널에서<br>독일 주택기술을 만나보세요</h2>
+          <p class="sec-lead">독일 현지 주택 시공 현장, ALC·POROTON 기술 해설, 자재 리뷰까지 — 영상으로 먼저 확인하실 수 있습니다.</p>
+          <a class="btn btn-ghost" style="margin-top:24px" href={company.youtube} target="_blank" rel="noopener">채널 바로가기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA: 중앙 정렬 -->
+  <div class="sec deep home-cta">
+    <div class="wrap">
+      <span class="eyebrow" style="justify-content:center;display:inline-flex">Kontakt</span>
+      <h2>평생 살 집,<br><strong>독일 기술 전문가와 상의하세요</strong></h2>
+      <p class="sec-lead" style="margin-left:auto;margin-right:auto;text-align:center">부지 검토부터 골조 선택, 예산 계획까지 — 40년 ALC 경력의 전문가가 직접 상담합니다.</p>
+      <div class="btns">
+        <a class="btn btn-light" href="/contact">무료 건축 상담 신청</a>
+        <a class="btn btn-outline-light" href="/downloads">카탈로그 다운로드</a>
+      </div>
+      <div class="tel">대표번호<b>{company.tel}</b></div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const track = document.getElementById('revTrack') as HTMLElement | null;
+  const step = () => (track?.querySelector('.review')?.clientWidth ?? 0) + 24;
+  document.getElementById('revNext')?.addEventListener('click', () => track?.scrollBy({ left: step(), behavior: 'smooth' }));
+  document.getElementById('revPrev')?.addEventListener('click', () => track?.scrollBy({ left: -step(), behavior: 'smooth' }));
+</script>

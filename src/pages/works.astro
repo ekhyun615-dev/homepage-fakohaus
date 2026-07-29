@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="시공사례 | FAKOHAUS"
+  description="완축(턴키)과 반축(골조+외피) 시공 사례. 모든 현장은 독일 표준 디테일로 기록·관리됩니다."
+>
+  <div class="sub-hero">
+    <div class="wrap">
+      <div class="crumb">Home / 시공사례</div>
+      <h1>시공사례</h1>
+      <p>완축(턴키) 시공과 반축(골조+외피) 시공 사례를 확인하세요. 모든 현장은 독일 표준 디테일로 기록·관리됩니다.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="tabs">
+      <button data-tab="full" class="on">완축공사</button>
+      <button data-tab="half">반축공사</button>
+    </div>
+  </div>
+
+  <div class="tabpane on" data-pane="full">
+    <div class="sec">
+      <div class="wrap">
+        <p class="sec-lead">설계부터 인테리어 마감·준공까지 FAKOHAUS가 일괄 수행한 턴키 프로젝트입니다.</p>
+        <div class="filterbar" data-filter="full">
+          <button data-f="all" class="on">전체</button>
+          <button data-f="alc">ALC주택</button>
+          <button data-f="poroton">POROTON주택</button>
+        </div>
+        <div class="gal" id="galFull"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpane" data-pane="half">
+    <div class="sec">
+      <div class="wrap">
+        <p class="sec-lead">골조와 외피(지붕·창호·외벽)까지 시공하고, 내부 마감은 건축주가 직접 진행하는 합리적 방식입니다.</p>
+        <div class="filterbar" data-filter="half">
+          <button data-f="all" class="on">전체</button>
+          <button data-f="alc">ALC주택</button>
+          <button data-f="poroton">POROTON주택</button>
+        </div>
+        <div class="gal" id="galHalf"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- lightbox -->
+  <div class="lb" id="lb" role="dialog" aria-modal="true">
+    <div class="box">
+      <div id="lb-img"></div>
+      <div class="cap"><b id="lb-title"></b><button class="lb-x" id="lb-close">닫기 ✕</button></div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  type Work = { t: string; s: string; k: 'alc' | 'poroton' };
+
+  // TODO: 실제 시공사례 사진으로 교체 (현재는 플레이스홀더 일러스트 + 예시 데이터)
+  const worksFull: Work[] = [
+    { t: '양평 문호리 주택', s: 'ALC 350 완축 · 34평 · 2025', k: 'alc' },
+    { t: '김포 운양동 주택', s: 'POROTON 365 완축 · 45평 · 2025', k: 'poroton' },
+    { t: '아산 배방 주택', s: 'ALC 350 완축 · 38평 · 2024', k: 'alc' },
+    { t: '원주 소초 주택', s: 'POROTON 365 완축 · 42평 · 2024', k: 'poroton' },
+    { t: '용인 처인 주택', s: 'ALC 300 완축 · 30평 · 2023', k: 'alc' },
+    { t: '파주 문산 주택', s: 'POROTON 365 완축 · 48평 · 2023', k: 'poroton' },
+  ];
+  const worksHalf: Work[] = [
+    { t: '양양 손양 주택', s: 'ALC 골조+외피 반축 · 2025', k: 'alc' },
+    { t: '제천 백운 주택', s: 'POROTON 골조+외피 반축 · 2024', k: 'poroton' },
+    { t: '홍천 북방 주택', s: 'ALC 골조+외피 반축 · 2024', k: 'alc' },
+    { t: '세종 전동 주택', s: 'POROTON 골조+외피 반축 · 2023', k: 'poroton' },
+  ];
+
+  const houseSVG = (hue: string) => `<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block"><rect width="400" height="240" fill="#ede9fe"/><rect y="185" width="400" height="55" fill="#c4b5fd" opacity=".45"/><polygon points="80,115 200,55 320,115" fill="${hue}"/><rect x="95" y="115" width="210" height="72" fill="#fff" stroke="#7c3aed" stroke-width="2"/><rect x="115" y="130" width="42" height="45" fill="#7c3aed" opacity=".8"/><rect x="245" y="130" width="42" height="45" fill="#7c3aed" opacity=".8"/><rect x="180" y="135" width="40" height="52" fill="#4c1d95"/></svg>`;
+
+  function renderGal(id: string, data: Work[]) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = data
+      .map(
+        (w) => `
+      <div class="gitem" data-k="${w.k}" data-t="${w.t}" data-s="${w.s}">
+        <span class="badge">${w.k === 'alc' ? 'ALC' : 'POROTON'}</span>
+        ${houseSVG(w.k === 'alc' ? '#3b0764' : '#4c1d95')}
+        <div class="cap"><b>${w.t}</b><small>${w.s}</small></div>
+      </div>`
+      )
+      .join('');
+  }
+  renderGal('galFull', worksFull);
+  renderGal('galHalf', worksHalf);
+
+  /* filter */
+  document.querySelectorAll<HTMLElement>('.filterbar').forEach((bar) => {
+    bar.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('button');
+      if (!btn) return;
+      bar.querySelectorAll('button').forEach((b) => b.classList.remove('on'));
+      btn.classList.add('on');
+      const gal = bar.parentElement?.querySelector('.gal');
+      gal?.querySelectorAll<HTMLElement>('.gitem').forEach((it) => {
+        it.style.display = btn.dataset.f === 'all' || it.dataset.k === btn.dataset.f ? '' : 'none';
+      });
+    });
+  });
+
+  /* lightbox */
+  const lb = document.getElementById('lb');
+  document.addEventListener('click', (e) => {
+    const it = (e.target as HTMLElement).closest<HTMLElement>('.gitem');
+    if (it && lb) {
+      const lbImg = document.getElementById('lb-img');
+      const lbTitle = document.getElementById('lb-title');
+      if (lbImg) lbImg.innerHTML = houseSVG(it.dataset.k === 'alc' ? '#3b0764' : '#4c1d95');
+      if (lbTitle) lbTitle.textContent = `${it.dataset.t} — ${it.dataset.s}`;
+      lb.classList.add('on');
+    }
+  });
+  document.getElementById('lb-close')?.addEventListener('click', () => lb?.classList.remove('on'));
+  lb?.addEventListener('click', (e) => {
+    if (e.target === lb) lb.classList.remove('on');
+  });
+</script>

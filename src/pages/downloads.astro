@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// TODO: 실제 PDF/DWG 파일 업로드 후 href를 public/downloads/* 경로로 연결
+---
+
+<BaseLayout
+  title="Download | FAKOHAUS"
+  description="FAKOHAUS 카탈로그·기술자료·기술정보 PDF 다운로드."
+>
+  <div class="sub-hero">
+    <div class="wrap">
+      <div class="crumb">Home / Download</div>
+      <h1>Download</h1>
+      <p>카탈로그·기술자료·기술정보를 PDF로 제공합니다. 계약 전 충분히 검토하시고 궁금한 점은 언제든 문의하세요.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="tabs">
+      <button data-tab="catalog" class="on">카탈로그</button>
+      <button data-tab="tech">기술자료</button>
+      <button data-tab="info">기술정보</button>
+    </div>
+  </div>
+
+  <div class="tabpane on" data-pane="catalog">
+    <div class="sec"><div class="wrap">
+      <div class="dl-list">
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>FAKOHAUS 종합 카탈로그 2026</b><small>주택모델 25A/25B · 골조 · 사양 종합 안내 (24p)</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>CREATON 점토기와 카탈로그</b><small>기와 라인업 · 컬러 · 액세서리 (한글판)</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>GAULHOFER 창호 카탈로그</b><small>시스템창호 · 현관문 · 리프트슬라이딩 도어</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>alsecco / Caparol 외단열 마감 카탈로그</b><small>WDVS 시스템 · 마감 텍스처 · 컬러 차트</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="tabpane" data-pane="tech">
+    <div class="sec"><div class="wrap">
+      <div class="dl-list">
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>ALC 블록 조적 시공 표준 상세</b><small>줄눈 몰탈 · 보강 · 개구부 인방 디테일</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>POROTON 365 단일벽 시공 지침</b><small>1열 조적 · 앵커링 · 슬래브 접합부</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+        <div class="dl"><div class="ic">DWG</div><div class="tx"><b>표준 단면 상세도 세트</b><small>외벽 · 지붕 · 기초 접합부 CAD 도면</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>외단열(WDVS) 시공 체크리스트</b><small>접착 · 파스너 · 메쉬 · 마감 공정별 검수 항목</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="tabpane" data-pane="info">
+    <div class="sec"><div class="wrap">
+      <div class="dl-list">
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>ALC vs POROTON 골조 비교 가이드</b><small>성능 · 비용 · 유지관리 관점 비교</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>독일 주택 단열 기준 해설</b><small>EnEV/GEG 기준과 국내 기준 비교</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>완축 vs 반축, 무엇이 다른가</b><small>공사 범위 · 예산 · 일정 비교 안내</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+      </div>
+      <div class="faq">
+        <details><summary>자료는 누구나 받을 수 있나요?</summary><div class="a">네. 모든 자료는 예비 건축주님을 위해 무료로 공개합니다. 상세 견적 자료는 상담 후 별도 제공됩니다.</div></details>
+        <details><summary>도면(DWG) 파일은 어떤 용도인가요?</summary><div class="a">설계사무소·시공 파트너와의 협의용 표준 상세입니다. 실제 프로젝트에는 현장 조건에 맞춘 도면이 별도 작성됩니다.</div></details>
+      </div>
+    </div></div>
+  </div>
+</BaseLayout>
+
+<script>
+  // 실제 파일 연결 전까지 "준비 중" 안내로 대체
+  document.querySelectorAll<HTMLButtonElement>('.dl-btn').forEach((b) => {
+    b.addEventListener('click', () => {
+      b.textContent = '준비 중';
+      setTimeout(() => (b.textContent = '다운로드'), 1400);
+    });
+  });
+</script>

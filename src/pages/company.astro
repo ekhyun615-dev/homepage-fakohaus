@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { company } from '../data/site';
+---
+
+<BaseLayout
+  title="회사소개 | FAKOHAUS"
+  description="2001년 설립 이후 독일 건축기술을 이용한 독일식 주택 신축과 프리미엄 독일 건축자재만을 고집해 온 ㈜ALCMATE."
+>
+  <div class="sub-hero">
+    <div class="wrap">
+      <div class="crumb">Home / 회사소개</div>
+      <h1>회사소개</h1>
+      <p>2001년 설립 이후 한결같이 독일 건축기술을 이용한 독일식 주택 신축과 프리미엄 독일 건축자재만을 고집해 온 {company.legalName}입니다.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="tabs">
+      <button data-tab="greeting" class="on">인사말</button>
+      <button data-tab="history">연혁</button>
+      <button data-tab="business">사업분야</button>
+      <button data-tab="brand">브랜드</button>
+      <button data-tab="location">오시는 길</button>
+    </div>
+  </div>
+
+  <!-- 인사말 -->
+  <div class="tabpane on" data-pane="greeting">
+    <div class="sec"><div class="wrap split">
+      <div class="media">
+        <svg class="ph" viewBox="0 0 560 420"><rect width="560" height="420" fill="#ede9fe"/><circle cx="280" cy="170" r="80" fill="#c4b5fd"/><circle cx="280" cy="150" r="34" fill="#fff"/><path d="M210 260 q70 -50 140 0 v90 h-140z" fill="#fff"/><rect x="120" y="360" width="320" height="10" rx="5" fill="#c4b5fd"/></svg>
+      </div>
+      <div>
+        <span class="eyebrow">Grußwort</span>
+        <h3>한 차원 높은 주택 품질을 위하여</h3>
+        <p>저희 {company.legalName}는 2001년 설립 이후 한결같이 독일 건축기술을 이용한 독일식 ALC주택 신축과 프리미엄급 독일 건축자재의 수입·판매만을 고집해 왔습니다.</p>
+        <p style="margin-top:14px">그 바탕에는 설립 전 쌍용양회에서 1985년 ALC 사업 조사를 착수하고, 1990년 독일 Hebel사의 설비·기술을 도입하며 수많은 국내외 ALC 프로젝트를 수행한 경험이 있습니다. 독일에서 50년 이상 지어져 온 검증된 주택기술로, 국내 주택의 품질 수준을 한 차원 높이겠습니다.</p>
+        <p style="margin-top:22px;font-weight:700;color:var(--p900)">{company.legalName} 대표이사 {company.ceo}</p>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 연혁 -->
+  <div class="tabpane" data-pane="history">
+    <div class="sec"><div class="wrap">
+      <span class="eyebrow">Geschichte</span>
+      <h2 class="sec-title">걸어온 길</h2>
+      <div class="tl">
+        <div class="tl-item"><b>1985</b><h4>ALC 사업 조사 착수</h4><p>쌍용양회 신건축자재 사업화 업무의 일환으로 ALC 시장·기술 조사를 시작했습니다.</p></div>
+        <div class="tl-item"><b>1990</b><h4>독일 Hebel 설비·기술 도입</h4><p>독일 Hebel사로부터 ALC 생산 설비와 건축기술을 전수받아 국내외 다수의 ALC 프로젝트를 수행했습니다.</p></div>
+        <div class="tl-item"><b>2001</b><h4>{company.legalName} 설립</h4><p>축적된 ALC 경험과 선진 기술을 바탕으로 독일식 주택 전문 기업을 설립했습니다.</p></div>
+        <div class="tl-item"><b>2000년대</b><h4>독일·오스트리아 자재 수입 본격화</h4><p>CREATON 기와, GAULHOFER 창호, alsecco·Caparol 마감재 등 프리미엄 브랜드 파트너십을 구축했습니다.</p></div>
+        <div class="tl-item"><b>현재</b><h4>FAKOHAUS 브랜드 운영</h4><p>독일식 ALC·POROTON 주택 브랜드 FAKOHAUS와 유튜브 채널을 통해 독일 주택기술을 알리고 있습니다.</p></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 사업분야 -->
+  <div class="tabpane" data-pane="business">
+    <div class="sec"><div class="wrap">
+      <span class="eyebrow">Geschäftsfelder</span>
+      <h2 class="sec-title">사업분야</h2>
+      <div class="cards3">
+        <div class="card"><div class="body"><span class="tag">01 · Bau</span><h3>독일식 주택 신축</h3><p>ALC·POROTON 골조의 단독·전원주택 설계 및 완축/반축 시공.</p></div></div>
+        <div class="card"><div class="body"><span class="tag">02 · Import</span><h3>독일 건축자재 수입·판매</h3><p>지붕재·창호·외단열 마감재 등 프리미엄 독일·오스트리아 자재 직수입 공급.</p></div></div>
+        <div class="card"><div class="body"><span class="tag">03 · Consulting</span><h3>기술 컨설팅</h3><p>설계사무소·시공사 대상 ALC/POROTON 구법, 외단열 시스템 기술 지원.</p></div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 브랜드 -->
+  <div class="tabpane" data-pane="brand">
+    <div class="sec"><div class="wrap">
+      <span class="eyebrow">Partner Marken</span>
+      <h2 class="sec-title">함께하는 브랜드</h2>
+      <p class="sec-lead">유럽 현지에서 검증된 프리미엄 브랜드의 공식 파트너로서 정품 자재를 공급합니다.</p>
+      <div class="brands">
+        <div class="brand"><span class="flag">Germany · 지붕재</span><h4>CREATON</h4><p>독일 점토기와의 대표 브랜드. 고온 소성 점토기와 특유의 내구성과 색 안정성으로 유럽 주택 지붕의 표준으로 자리잡았습니다.</p></div>
+        <div class="brand"><span class="flag">Austria · 창호</span><h4>GAULHOFER</h4><p>1919년 설립된 오스트리아 창호 명가. 목재·목재알루미늄·PVC 시스템창호로 패시브하우스급 단열과 기밀을 구현합니다.</p></div>
+        <div class="brand"><span class="flag">Germany · 외단열 마감</span><h4>alsecco</h4><p>독일 외단열 시스템(WDVS) 전문 브랜드. 단열재부터 마감 미장까지 시스템 전체를 단일 보증으로 제공합니다.</p></div>
+        <div class="brand"><span class="flag">Germany · 도장</span><h4>Caparol</h4><p>독일 1위 건축 도료 브랜드. 친환경 수성 도장과 외단열 마감재로 유럽 주택의 벽면을 책임집니다.</p></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 오시는 길 -->
+  <div class="tabpane" data-pane="location">
+    <div class="sec"><div class="wrap">
+      <span class="eyebrow">Anfahrt</span>
+      <h2 class="sec-title">오시는 길</h2>
+      <div class="contact-grid" style="margin-top:36px">
+        <div class="cinfo">
+          <div class="row"><div class="ic">주소</div><div><b>경기도 김포시 태장로 741</b><small>경동미르웰시티 534호</small></div></div>
+          <div class="row"><div class="ic">전화</div><div><b>{company.tel}</b><small>{company.hours}</small></div></div>
+          <div class="row"><div class="ic">메일</div><div><b>{company.email}</b><small>자재 문의·기술 문의 환영</small></div></div>
+          <div class="row"><div class="ic">차량</div><div><b>자가용 이용 시</b><small>김포한강로 → 태장로 진입, 건물 내 주차 가능</small></div></div>
+        </div>
+        <div>
+          <div class="map-box"><div class="map-ph" style="aspect-ratio:4/3"><b>📍 경기도 김포시 태장로 741</b><span>경동미르웰시티 534 · FAKOHAUS 전시실</span><a class="btn btn-ghost" style="margin-top:10px" href="https://map.kakao.com/link/search/경기도 김포시 태장로 741" target="_blank" rel="noopener">카카오맵 길찾기 →</a></div></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+</BaseLayout>

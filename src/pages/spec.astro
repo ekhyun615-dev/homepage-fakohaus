@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="주택사양 | FAKOHAUS"
+  description="외벽·지붕·내벽 전 구간에 독일 표준 시스템과 정품 자재를 적용하는 FAKOHAUS 주택사양."
+>
+  <div class="sub-hero">
+    <div class="wrap">
+      <div class="crumb">Home / 주택사양</div>
+      <h1>주택사양</h1>
+      <p>집의 성능은 골조와 외피 시스템이 결정합니다. FAKOHAUS는 외벽·지붕·내벽 전 구간에 독일 표준 시스템과 정품 자재를 적용합니다.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="tabs">
+      <button data-tab="wall" class="on">외벽시스템</button>
+      <button data-tab="roof">지붕시스템</button>
+      <button data-tab="inner">내벽마감시스템</button>
+    </div>
+  </div>
+
+  <!-- 외벽 -->
+  <div class="tabpane on" data-pane="wall">
+    <div class="sec">
+      <div class="wrap split">
+        <div class="media">
+          <svg class="ph" viewBox="0 0 560 400"><rect width="560" height="400" fill="#ede9fe"/><g><rect x="90" y="60" width="70" height="280" fill="#4c1d95"/><rect x="160" y="60" width="60" height="280" fill="#7c3aed"/><rect x="220" y="60" width="40" height="280" fill="#a78bfa"/><rect x="260" y="60" width="26" height="280" fill="#c4b5fd"/><rect x="286" y="60" width="14" height="280" fill="#fff" stroke="#c4b5fd"/></g><g font-family="Pretendard" font-size="13" fill="#3b0764"><text x="330" y="110">① 골조 (ALC/POROTON)</text><text x="330" y="160">② 접착 몰탈</text><text x="330" y="210">③ 외단열재</text><text x="330" y="260">④ 보강 메쉬 미장</text><text x="330" y="310">⑤ alsecco 마감 미장</text></g></svg>
+        </div>
+        <div>
+          <span class="eyebrow">WDVS · 외단열 시스템</span>
+          <h3>alsecco 외단열 미장 마감</h3>
+          <p>독일 주택의 표준인 외단열 공법(WDVS)을 alsecco·Caparol 정품 시스템으로 시공합니다. 구조체를 단열재가 바깥에서 감싸 열교를 차단하므로, 내단열 방식에서 흔한 결로와 곰팡이가 원천적으로 발생하지 않습니다.</p>
+          <ul class="checks">
+            <li>열교 차단 — 벽체 전체가 균일한 온도를 유지</li>
+            <li>미장·마감·도장까지 단일 브랜드 시스템 보증</li>
+            <li>다양한 텍스처·컬러의 유럽식 미장 마감</li>
+            <li>탄성 마감재로 균열에 강한 외피</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 지붕 -->
+  <div class="tabpane" data-pane="roof">
+    <div class="sec">
+      <div class="wrap split">
+        <div class="media">
+          <svg class="ph" viewBox="0 0 560 400"><rect width="560" height="400" fill="#ede9fe"/><g><polygon points="60,300 280,110 500,300" fill="#3b0764"/><g stroke="#7c3aed" stroke-width="2" fill="none"><path d="M100 265 L280 110 M140 230 L280 130 M180 195 L280 150"/><path d="M460 265 L280 110 M420 230 L280 130 M380 195 L280 150"/></g><g fill="#c4b5fd" opacity=".9"><ellipse cx="170" cy="250" rx="16" ry="9"/><ellipse cx="220" cy="215" rx="16" ry="9"/><ellipse cx="270" cy="180" rx="16" ry="9"/><ellipse cx="320" cy="205" rx="16" ry="9"/><ellipse cx="370" cy="240" rx="16" ry="9"/></g></g><text x="280" y="360" text-anchor="middle" font-size="14" fill="#4c1d95" letter-spacing="4" font-family="Pretendard">CREATON TONDACHZIEGEL</text></svg>
+        </div>
+        <div>
+          <span class="eyebrow">Dachsystem</span>
+          <h3>CREATON 점토기와 지붕 시스템</h3>
+          <p>독일 CREATON의 점토기와는 유럽 주택 지붕의 상징입니다. 고온 소성 점토 특유의 색 안정성과 내구성으로, 수십 년이 지나도 변색 없이 처음의 품격을 유지합니다.</p>
+          <ul class="checks">
+            <li>통기층을 갖춘 독일식 이중 지붕 구조</li>
+            <li>점토 소성 기와 — 자외선 변색·백화 없음</li>
+            <li>방수 시트·후레싱까지 시스템 일괄 시공</li>
+            <li>태양광 패널·도머창·천창 연계 디테일 보유</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 내벽 -->
+  <div class="tabpane" data-pane="inner">
+    <div class="sec">
+      <div class="wrap split">
+        <div class="media">
+          <svg class="ph" viewBox="0 0 560 400"><rect width="560" height="400" fill="#ede9fe"/><rect x="70" y="60" width="420" height="280" rx="10" fill="#fff" stroke="#c4b5fd" stroke-width="2"/><rect x="70" y="60" width="200" height="280" rx="10" fill="#f4edff"/><rect x="110" y="120" width="110" height="150" rx="6" fill="#c4b5fd" opacity=".6"/><rect x="320" y="110" width="130" height="170" rx="6" fill="#7c3aed" opacity=".18"/><rect x="330" y="250" width="110" height="12" rx="6" fill="#7c3aed"/><rect x="330" y="275" width="80" height="10" rx="5" fill="#c4b5fd"/></svg>
+        </div>
+        <div>
+          <span class="eyebrow">Innenausbau</span>
+          <h3>숨 쉬는 미장 내벽 마감</h3>
+          <p>석고보드 대신 독일식 미장 마감을 표준으로 합니다. 무기질 미장면은 실내 습도를 조절하고, 벽지 없이도 Caparol 친환경 도장으로 유럽 주택 특유의 정갈한 벽면을 완성합니다.</p>
+          <ul class="checks">
+            <li>무기질 미장 — 조습 작용으로 쾌적한 실내 습도</li>
+            <li>Caparol 친환경 수성 도장 마감</li>
+            <li>못·선반 시공이 자유로운 단단한 벽체</li>
+            <li>포름알데히드 걱정 없는 건강한 마감</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import { nav, company } from '../data/site';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+function isActive(href: string) {
+  const base = href.split('#')[0].replace(/\/$/, '');
+  return path === base;
+}
+---
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/">
+      <strong>FAKOHAUS</strong><span>Deutsche Bautechnik</span>
+    </a>
+    <ul class="gnb">
+      {nav.map((item) => (
+        <li>
+          <a href={item.href} class={isActive(item.href) ? 'on' : ''}>{item.label}</a>
+          <ul class="dd">
+            {item.children.map((child) => (
+              <li><a href={child.href}>{child.label}</a></li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+    <div class="nav-cta">
+      <div class="nav-tel">{company.tel}<small>상담 문의 · 평일 09:00–18:00</small></div>
+      <a class="btn btn-primary" href="/contact" style="padding:12px 24px;font-size:14.5px">상담 신청</a>
+      <button class="burger" id="burger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile nav -->
+<nav class="mnav" id="mnav">
+  {nav.map((item) => (
+    <div class="grp">
+      <a href={item.href}>{item.label}</a>
+      <ul>
+        {item.children.map((child) => (
+          <li><a href={child.href}>{child.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  ))}
+  <div class="grp"><a href="/contact">상담 문의</a></div>
+  <a class="btn btn-primary" href="/contact" style="margin-top:24px;width:100%;justify-content:center">📞 {company.tel} 상담 신청</a>
+</nav>
+
+<script>
+  const burger = document.getElementById('burger');
+  const mnav = document.getElementById('mnav');
+  burger?.addEventListener('click', () => mnav?.classList.toggle('open'));
+</script>

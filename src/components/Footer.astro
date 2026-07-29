@@ -1,0 +1,36 @@
+---
+import { company } from '../data/site';
+---
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-logo"><strong>FAKOHAUS</strong><span>Deutsche Bautechnik · {company.legalName}</span></div>
+        <p>대표자 {company.ceo} · 사업자등록번호 {company.bizNo}<br>{company.address}<br>대표번호 {company.tel} · {company.email}</p>
+      </div>
+      <div class="foot-col"><b>주택</b>
+        <ul>
+          <li><a href="/models#25a">FAKOHAUS 25A</a></li>
+          <li><a href="/models#25b">FAKOHAUS 25B</a></li>
+          <li><a href="/frame#alc">ALC주택</a></li>
+          <li><a href="/frame#poroton">POROTON주택</a></li>
+          <li><a href="/works">시공사례</a></li>
+        </ul>
+      </div>
+      <div class="foot-col"><b>회사</b>
+        <ul>
+          <li><a href="/company#greeting">인사말</a></li>
+          <li><a href="/company#brand">브랜드</a></li>
+          <li><a href="/downloads">자료실</a></li>
+          <li><a href="/company#location">오시는 길</a></li>
+          <li><a href={company.youtube} target="_blank" rel="noopener">YouTube 채널</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ALCMATE Co., Ltd. All rights reserved.</span>
+      <span>ALC주택 · POROTON주택 · 전원주택 | 친환경 독일주택기술</span>
+    </div>
+  </div>
+</footer>
