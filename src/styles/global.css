@@ -52,7 +52,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(250,245,255,.86);backdr
 .gnb>li{position:relative}
 .gnb>li>a{display:block;padding:10px 16px;font-size:15.5px;font-weight:600;color:var(--ink);border-radius:8px;transition:.2s}
 .gnb>li>a:hover,.gnb>li>a.on{color:var(--p600)}
-.gnb .dd{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:8px;min-width:170px;opacity:0;pointer-events:none;transition:.22s;list-style:none}
+.gnb .dd{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:14px 8px 8px;min-width:170px;opacity:0;pointer-events:none;transition:.22s;list-style:none}
 .gnb>li:hover .dd{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
 .dd a{display:block;padding:10px 14px;border-radius:8px;font-size:14.5px;color:var(--ink);white-space:nowrap}
 .dd a:hover{background:var(--p100);color:var(--p600)}
