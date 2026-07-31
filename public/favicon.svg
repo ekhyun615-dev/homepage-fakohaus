@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="fakohausBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#3b0764" />
+    </linearGradient>
+  </defs>
+  <!-- 퍼플 그래디언트 둥근 모서리 사각형 배경 -->
+  <rect width="64" height="64" rx="16" fill="url(#fakohausBg)" />
+  
+  <!-- 박공지붕 라인 (독일식 주택) -->
+  <path d="M 32 11 L 51 25 L 45 25 L 32 15.5 L 19 25 L 13 25 Z" fill="#ffffff" />
+  
+  <!-- F 모노그램 + 조적 블록 모티브 -->
+  <!-- 메인 기둥 -->
+  <rect x="20" y="24" width="7" height="26" rx="2" fill="#ffffff" />
+  <!-- F 상단 바 -->
+  <rect x="20" y="27" width="22" height="6" rx="2" fill="#ffffff" />
+  <!-- F 중간 바 -->
+  <rect x="20" y="37" width="16" height="6" rx="2" fill="#ffffff" />
+  <!-- 조적 블록 포인트 (연보라 accent) -->
+  <rect x="39" y="37" width="5" height="6" rx="1.5" fill="#c4b5fd" />
+  <!-- 하단 조적 받침 선 -->
+  <rect x="20" y="46" width="24" height="4" rx="1.5" fill="#c4b5fd" opacity="0.8" />
+</svg>

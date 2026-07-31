@@ -9,8 +9,8 @@ import { company } from '../data/site';
     <div class="wrap">
       <div>
         <span class="hero-eyebrow">Massivhaus aus Deutschland · Since 2001</span>
-        <h1>독일에서 50년,<br><strong>한국에서 100년을 잇는 집</strong></h1>
-        <p>FAKOHAUS는 독일 ALC·POROTON 조적식 주택기술과 프리미엄 독일 건축자재로 짓는, {company.legalName}의 독일식 주택 브랜드입니다.</p>
+        <h1>평생 살 집이라면,<br><strong>짓는 방식부터 달라야 합니다</strong></h1>
+        <p>독일 ALC·POROTON 조적식 골조와 프리미엄 독일 자재로 짓는, 결로 없고 세대를 넘기는 집. {company.legalName}의 독일식 주택 브랜드 FAKOHAUS입니다.</p>
         <div class="hero-btns">
           <a class="btn btn-primary" href="/models">주택모델 보기 →</a>
           <a class="btn btn-ghost" href="/contact">건축 상담 신청</a>
@@ -44,7 +44,35 @@ import { company } from '../data/site';
       <p class="sec-lead">독일식 조적 주택의 설계·시공부터 프리미엄 독일 건축자재의 수입·판매, 기술 컨설팅까지 — 집의 처음과 끝을 책임집니다.</p>
       <div class="cards3">
         <a class="card" href="/frame#alc">
-          <div class="thumb"><svg class="ph" viewBox="0 0 400 250"><rect width="400" height="250" fill="#ede9fe"/><g fill="#c4b5fd"><rect x="60" y="60" width="80" height="40" rx="4"/><rect x="150" y="60" width="80" height="40" rx="4"/><rect x="240" y="60" width="80" height="40" rx="4"/><rect x="105" y="110" width="80" height="40" rx="4"/><rect x="195" y="110" width="80" height="40" rx="4"/><rect x="60" y="160" width="80" height="40" rx="4"/><rect x="150" y="160" width="80" height="40" rx="4"/><rect x="240" y="160" width="80" height="40" rx="4"/></g><rect x="105" y="110" width="80" height="40" rx="4" fill="#7c3aed"/></svg></div>
+          <div class="thumb">
+            <!-- ALC 친환경 무기질 블록 & 모던 하우스 -->
+            <svg class="ph" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="alcBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#f5f3ff" />
+                  <stop offset="100%" stop-color="#ddd6fe" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="250" fill="url(#alcBg)"/>
+              <!-- ALC 무기질 정밀 블록 조적 레이어 -->
+              <g fill="#7c3aed" opacity="0.85">
+                <rect x="50" y="140" width="90" height="35" rx="3"/>
+                <rect x="145" y="140" width="90" height="35" rx="3"/>
+                <rect x="240" y="140" width="90" height="35" rx="3"/>
+                <rect x="95" y="100" width="90" height="35" rx="3" fill="#8b5cf6"/>
+                <rect x="190" y="100" width="90" height="35" rx="3" fill="#8b5cf6"/>
+                <rect x="50" y="60" width="90" height="35" rx="3"/>
+                <rect x="145" y="60" width="90" height="35" rx="3"/>
+                <rect x="240" y="60" width="90" height="35" rx="3"/>
+              </g>
+              <!-- ALC 기포 미세 단열 아이콘 반사 -->
+              <circle cx="140" cy="117" r="4" fill="#ffffff" opacity="0.7"/>
+              <circle cx="235" cy="117" r="4" fill="#ffffff" opacity="0.7"/>
+              <!-- 하단 친환경 태그 라인 -->
+              <path d="M50 190 H330" stroke="#a78bfa" stroke-width="3" stroke-dasharray="6 6"/>
+              <text x="200" y="218" font-size="13" font-weight="600" fill="#6d28d9" text-anchor="middle" font-family="sans-serif">친환경 ALC 무기질 조적체</text>
+            </svg>
+          </div>
           <div class="body">
             <span class="tag">ALC Massivhaus</span>
             <h3>ALC주택 신축</h3>
@@ -53,7 +81,31 @@ import { company } from '../data/site';
           </div>
         </a>
         <a class="card" href="/frame#poroton">
-          <div class="thumb"><svg class="ph" viewBox="0 0 400 250"><rect width="400" height="250" fill="#ede9fe"/><g fill="none" stroke="#7c3aed" stroke-width="3"><rect x="90" y="55" width="220" height="140" rx="6"/><path d="M120 55v140M150 55v140M180 55v140M210 55v140M240 55v140M270 55v140"/><path d="M90 90h220M90 125h220M90 160h220"/></g><rect x="90" y="55" width="220" height="140" rx="6" fill="#c4b5fd" opacity=".25"/></svg></div>
+          <div class="thumb">
+            <!-- POROTON 다공질 점토벽돌 조적 구조 -->
+            <svg class="ph" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="porotonBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#faf5ff" />
+                  <stop offset="100%" stop-color="#e9d5ff" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="250" fill="url(#porotonBg)"/>
+              <!-- POROTON 중후한 테라코타/퍼플 블록 그리드 -->
+              <rect x="80" y="50" width="240" height="135" rx="8" fill="#581c87" />
+              <!-- 점토벽돌 다공성 에어 챔버 내장 구조 표현 -->
+              <g fill="#c084fc" opacity="0.9">
+                <rect x="100" y="65" width="20" height="105" rx="3"/>
+                <rect x="130" y="65" width="20" height="105" rx="3"/>
+                <rect x="160" y="65" width="20" height="105" rx="3"/>
+                <rect x="190" y="65" width="20" height="105" rx="3"/>
+                <rect x="220" y="65" width="20" height="105" rx="3"/>
+                <rect x="250" y="65" width="20" height="105" rx="3"/>
+                <rect x="280" y="65" width="20" height="105" rx="3"/>
+              </g>
+              <text x="200" y="218" font-size="13" font-weight="600" fill="#6d28d9" text-anchor="middle" font-family="sans-serif">독일 점토벽돌 Poroton Ziegel</text>
+            </svg>
+          </div>
           <div class="body">
             <span class="tag">Poroton Ziegel</span>
             <h3>POROTON주택 신축</h3>
@@ -62,7 +114,28 @@ import { company } from '../data/site';
           </div>
         </a>
         <a class="card" href="/company#brand">
-          <div class="thumb"><svg class="ph" viewBox="0 0 400 250"><rect width="400" height="250" fill="#ede9fe"/><g><rect x="60" y="70" width="120" height="110" rx="8" fill="#fff" stroke="#c4b5fd" stroke-width="2"/><rect x="220" y="70" width="120" height="110" rx="8" fill="#fff" stroke="#c4b5fd" stroke-width="2"/><circle cx="120" cy="115" r="24" fill="#7c3aed"/><rect x="255" y="95" width="50" height="40" fill="#3b0764"/><rect x="90" y="150" width="60" height="8" rx="4" fill="#c4b5fd"/><rect x="250" y="150" width="60" height="8" rx="4" fill="#c4b5fd"/></g></svg></div>
+          <div class="thumb">
+            <!-- 프리미엄 독일/오스트리아 기와 및 창호 자재 -->
+            <svg class="ph" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="matBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#f3e8ff" />
+                  <stop offset="100%" stop-color="#ddd6fe" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="250" fill="url(#matBg)"/>
+              <!-- 기와 Wave 패턴 (CREATON) -->
+              <path d="M 60 90 Q 80 70 100 90 Q 120 70 140 90 Q 160 70 180 90" fill="none" stroke="#7c3aed" stroke-width="4" stroke-linecap="round"/>
+              <path d="M 60 115 Q 80 95 100 115 Q 120 95 140 115 Q 160 95 180 115" fill="none" stroke="#7c3aed" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+              <!-- 고성능 창호 프레임 (GAULHOFER) -->
+              <rect x="220" y="60" width="120" height="110" rx="6" fill="#ffffff" stroke="#6d28d9" stroke-width="3"/>
+              <rect x="230" y="70" width="45" height="40" rx="3" fill="#a78bfa" opacity="0.4"/>
+              <rect x="285" y="70" width="45" height="40" rx="3" fill="#a78bfa" opacity="0.4"/>
+              <rect x="230" y="118" width="45" height="42" rx="3" fill="#a78bfa" opacity="0.4"/>
+              <rect x="285" y="118" width="45" height="42" rx="3" fill="#a78bfa" opacity="0.4"/>
+              <text x="200" y="218" font-size="13" font-weight="600" fill="#6d28d9" text-anchor="middle" font-family="sans-serif">CREATON 기와 · GAULHOFER 창호</text>
+            </svg>
+          </div>
           <div class="body">
             <span class="tag">Premium Import</span>
             <h3>독일·오스트리아 건축자재</h3>
@@ -133,7 +206,7 @@ import { company } from '../data/site';
         <div>
           <span class="eyebrow">YouTube</span>
           <h2 class="sec-title" style="font-size:clamp(24px,2.8vw,34px)">FAKOHAUS 채널에서<br>독일 주택기술을 만나보세요</h2>
-          <p class="sec-lead">독일 현지 주택 시공 현장, ALC·POROTON 기술 해설, 자재 리뷰까지 — 영상으로 먼저 확인하실 수 있습니다.</p>
+          <p class="sec-lead">주택 시공 현장, ALC·POROTON 기술 해설, 자재 리뷰까지 — 영상으로 먼저 확인하실 수 있습니다.</p>
           <a class="btn btn-ghost" style="margin-top:24px" href={company.youtube} target="_blank" rel="noopener">채널 바로가기 →</a>
         </div>
       </div>
