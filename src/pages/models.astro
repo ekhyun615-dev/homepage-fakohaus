@@ -1,100 +1,381 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+type Spec = [string, string];
+type Model = {
+  id: string;
+  eyebrow: string;
+  name: string;
+  headline: string;
+  body: string;
+  checks: string[];
+  specs: Spec[];
+  hero: string;
+  plans: { label: string; src: string }[];
+  gallery: string[];
+};
+
+const models: Model[] = [
+  {
+    id: '25a',
+    eyebrow: 'Modell 25A · 20평형',
+    name: 'FAKOHAUS 25A',
+    headline: '작은 택지를 위한 콤팩트 2층, FAKOHAUS 25A',
+    body: '작은 택지에도 지을 수 있도록 설계된 25평형 2층 소형 1가구 주택입니다. 1층과 2층에 거실·침실 공간을 균형 있게 나눠 배치해 좁은 대지에서도 여유로운 생활 동선을 확보했습니다.',
+    checks: ['소규모 택지를 위한 소형주택', '1가구용 컴팩트 설계', '1층·2층 균형 배치'],
+    specs: [
+      ['연면적', '82.8㎡ (25.04평)'],
+      ['1층', '41.4㎡ (12.52평)'],
+      ['2층', '41.4㎡ (12.52평)'],
+      ['주택크기', '6.9m × 6.0m'],
+      ['지붕각도', '40° 또는 15°'],
+    ],
+    hero: 'https://lh3.googleusercontent.com/4isC4AkkyNtQX5UlKhIno8BJ9nzwDnIyKzduSYMd4mVDJfhuQdGOhH4X0CygHVEX6HPGlxyBVe1XIvT5KOFbqs1ybd0NKu0-S4iWPpYcFg=s0',
+    plans: [
+      { label: '1층 평면도', src: 'https://lh3.googleusercontent.com/nK_TrW8MOjzWRjfFuGNUkL_QICqn1svGCHkZR37jhZlGqzOeZZ1KvpSRwDJBtFSrq63d59FFsUk7nIemIqjq-3vI321qZk012HPNbUA=w700-h500-n' },
+      { label: '2층 평면도', src: 'https://lh3.googleusercontent.com/iNP_uKByhPX0bb_cGpUlAf3fQW5t_Dq5VtN1sDqNJ-NqK15jhc5luE6jYcHo1i-uuWKjbtNY1y21b7fM2-LpLj-MTXmW0FCv7p5CB-0=w700-h500-n' },
+    ],
+    gallery: [
+      'https://lh3.googleusercontent.com/S6kZ-A6_Miroys3e2dOEBRwloUXLt9GwYwTtqmDOtsISxpJErOAtRUVxJ66aAED0AS5DgFr3xOIA9XeBCASxVDnwO-zvOLGbwR2AdsVz5Q=w650-h370-n',
+      'https://lh3.googleusercontent.com/bd3JLqoufRPzibENwWicDbnpnP5UTCDxf-vW2kvRkmFqPlA55k6lMCa2qgpWRmx-Scu-Ac5cKjmfGTaTJf_4y3LVU5uYhk2GoLASjhib=w650-h370-n',
+      'https://lh3.googleusercontent.com/xSwO4FiSK77HaYgtytqRR3wvs6chZs36suxsCoTIXJmklZAW4EXdnK4E7Qgzv2cRgmaIIzS9jJn-V-UZiWuiFftfcGFIscFyeWRFmO65=w650-h370-n',
+      'https://lh3.googleusercontent.com/QtHw0Llkc6uvVEl3T9SFIyzczWAOnDdSE88Wfitzxfo5O5ROB69D0J7at3eX0bshAajYubGR2gzQaE6hQVXx6owqd3_8ffmKGIo94g58=w650-h370-n',
+    ],
+  },
+  {
+    id: '25b',
+    eyebrow: 'Modell 25B · 20평형',
+    name: 'FAKOHAUS 25B',
+    headline: '다락방을 더한 남향 단층, FAKOHAUS 25B',
+    body: '직사각형 평면의 소형 단층주택으로, 좌측엔 거실·주방·식당 등 공용공간을, 우측엔 안방과 침실을 배치해 프라이버시를 확보했습니다. 다락방은 옵션으로 설치할 수 있으며 건축면적에는 산입되지 않습니다.',
+    checks: ['소규모 단층 소형주택', '다락방 유무 선택 가능', '안방 전용 드레스룸·욕실'],
+    specs: [
+      ['연면적', '84.13㎡ (25.45평)'],
+      ['주택크기', '10.0m × 8.5m'],
+      ['구성', '거실·주방·식당·다용도실 + 안방·침실1 (다락방 옵션)'],
+    ],
+    hero: 'https://lh3.googleusercontent.com/OqOmNP8aZj1eNEwtgLWCPYva7aBu1Zm1GEfIrK8l3p0RqYu-AZteiBzT6dh-w5PR1WDN1K7RnXm2YYVzdoSMaUrvuxM48oOES25klh0=s0',
+    plans: [
+      { label: '1층 평면도', src: 'https://lh3.googleusercontent.com/BLjPLWa334R2pBdNrmEqQ09HvXUSCQZHPySACdnA6vtIPRB1Iqp0LpGnG7A-P9xg5Z5fL05xcPzp3GWsWD5t7pR3p6W6PjYiE0-wPJXCeQ=w700-h500-n' },
+      { label: '다락층 (선택)', src: 'https://lh3.googleusercontent.com/ZvtSI-P3q9Q0UJnSt2L8vd55EMEa-QprpQ0MuXeK4mh3kQvZineddkchgiNlxitw305HnllCdIGcZcdCbtgT8jo7m_ZY8Di1-gF8j0ol=w700-h500-n' },
+    ],
+    gallery: [
+      'https://lh3.googleusercontent.com/0ZCdeQul6iozN_vhecJf_PIAx59zl87gNqXUj4XWHMJttCwMciM7ZdIi9zdopd_NjQETerjqgXMK7x_c19bKrJxmTYJx-dvxUnpA-XuI=w650-h370-n',
+      'https://lh3.googleusercontent.com/boq716JdvBSaAOiSfY3rahmcbc2HbkVgaAaL7eQ4h5MmGUPNfK8Ptv-xLJgOxqw3ELVbDryD_yHweTbryV9Q4_HV1o5EkL7wUdVRLzc=w650-h370-n',
+      'https://lh3.googleusercontent.com/kaYXDSXGcL1asrqcOXx3QxB2sb1r1OCsfqzKC0YUtAJOLA2_ZN3EuLAe2smnvapQv4UEJfshFXG73wd2mr_ltOuJ8Nj02MnDrGjyVrVd=w650-h370-n',
+      'https://lh3.googleusercontent.com/YLezHwvXX5WwgR_wAgSoiY8H2ySLEJv3TdOTbR9xurTDD-yTfIFOCrDbZKHNypGJ2T__it0eM7pvyk5WYcaOxggQ-9OMBHUMYPP0_HhR3g=w650-h370-n',
+    ],
+  },
+  {
+    id: '30a',
+    eyebrow: 'Modell 30A · 30평형',
+    name: 'FAKOHAUS 30A',
+    headline: '가변형 평면의 실용형 단층, FAKOHAUS 30A',
+    body: '가로 11.5m, 세로 9.75m의 30평형 단층주택으로, 두 침실을 거실로 분리해 프라이버시를 높였습니다. 중간 공용실의 폭을 조정하면 27평까지 축소도 가능한 가변형 설계입니다.',
+    checks: ['소규모 택지를 위한 소형주택', '다락방 유무 선택 가능', '두 침실을 거실로 분리해 프라이버시 확보'],
+    specs: [
+      ['연면적', '98.13㎡ (29.68평)'],
+      ['주택크기', '11.50m × 9.75m'],
+      ['지붕각도', '30°'],
+    ],
+    hero: 'https://lh3.googleusercontent.com/V3ArSMcj9sgLk6sC_G46oMQJXdYdNR7JU5Wqapo_TChMm4luPodndJm_xVPY-L4WpUy1dXCQcsBDMYL9b0aBzgGeMaelabU5OSEy4nA4=s0',
+    plans: [
+      { label: '1층 평면도', src: 'https://lh3.googleusercontent.com/OT7blH379FgHF25O4w6DIBAH9AFzOZ-S2HM1y4xbAR9BQw24jOV8kmr9D6Ce6_mzM0Dtm9c7wrKwXqEDjOd0-wxPDC5bbZ2inK9utU0=w700-h500-n' },
+    ],
+    gallery: [
+      'https://lh3.googleusercontent.com/nddrZZBD-0viRtcId90022bpX-ySxE3m7hWTm96c6I6eeTaItEdu1tZEoMiQlTPYOUCFbZFjFivH8JkAjOoguGEfDXbfBV5FsNE64IFd=w650-h370-n',
+      'https://lh3.googleusercontent.com/4a1mhdLRLaoq74rDbH9bMcQXlE0q2yGY8_Jc24KA5uKTGEEcqOfOcQGqlky3_x1Q2XGkJ2_27L-Bo47tyZ0ZYnORV7H9Qza1SypV0pmA=w650-h370-n',
+      'https://lh3.googleusercontent.com/P3SpJGRZ3GttuuCrh7hHrTmAPmrH_FgoBfj-BYcxy016KQGRtdHVFkWtcyLJwfqF_3Y6Ig69qPeRb8g3ZNirgzTJr-_77D2ZZ-SeDObAAg=w650-h370-n',
+      'https://lh3.googleusercontent.com/NHTt1McZ3ZWw45L6murqZsRfm_jMDNF5NvXOQMt814Ym7FFYV2a8uAB-uVgtDXoNDxGhHCS8VaD21YvSpC2PNKQK7ZRAxO2Yj6NR1ISE=w650-h370-n',
+    ],
+  },
+  {
+    id: '32a',
+    eyebrow: 'Modell 32A · 30평형',
+    name: 'FAKOHAUS 32A',
+    headline: '은퇴 부부를 위한 정방형 단층, FAKOHAUS 32A',
+    body: '독일 주택 평면의 기본 개념을 도입해 현관을 뒤편에 두고 침실 공간과 공용공간을 완벽히 분리했습니다. 11.2m×11.4m 정방형 평면에 다락방(서재 겸용)을 더할 수 있는 1세대용 단층주택입니다.',
+    checks: ['1가구용 주택 (침실 2)', '다락방 선택 가능', '침실과 공용실의 완벽한 분리'],
+    specs: [
+      ['연면적', '108.72㎡ (32.89평)'],
+      ['주택크기', '11.20m × 11.40m'],
+      ['지붕각도', '30°'],
+    ],
+    hero: 'https://lh3.googleusercontent.com/IeX0FJCL44yixuRAFcgsjvW3aL_XxQjnRjHqPnTLs0E8YvD6qOlnOHRAoObClXp1eLw2ow3V9stOL42BENCgj2e6A7cXsnTyGN7l-GP6eQ=s0',
+    plans: [
+      { label: '1층 평면도', src: 'https://lh3.googleusercontent.com/vmQbg4ce4_WzEP1tqnmGgwIOA1aE82qZ2D2DOE9Lj5_mJOr4w7TTjm4u9SdSUYaLdIQrRkJmvrou1shP-cUoJYY6tdEXtyQ1bX0HnDM=w700-h500-n' },
+      { label: '다락 평면도', src: 'https://lh3.googleusercontent.com/giHuzctg2QDDEMbORllsONgEhJw7C5qmjg2p6Lx1fGADLZbokIlSfH8oWaQBz_uO1efRI8TU8IEDxCGoj4GdYYW8QLW3zz17H_uM8sA=w700-h500-n' },
+    ],
+    gallery: [
+      'https://lh3.googleusercontent.com/zNmme_91RSl5n5Brqz3khJbuocUMWncqS4Fn6_mWdiLAtoRqmk6QhtVV90v2Bqv1yoA1fI_z1u2bXTaVsTUA4Sbjrz_7GP-CNAEs8IVGog=w650-h370-n',
+      'https://lh3.googleusercontent.com/Plna1tGDRIAAqmsZY4ph-ZEjNOFVYSGDrBO2JyeRrcPqHWgGbiuMvwLm6EyKJrO4kUienFCdNoWqHyWP8A1QSFntBC-465yPdmnjFaAA=w650-h370-n',
+      'https://lh3.googleusercontent.com/SUphiuhfEAFjBXQjkOGN23q5CbfV-tOoa5OMKHRTZuwWQksj2eN-RXFNoVZpZ2TVTdNduA00tCNJUlRCU-XG3s-xAtw-MJXpj0Nuy1wgWQ=w650-h370-n',
+      'https://lh3.googleusercontent.com/IWuGTvcxI5Ruccg-WXRkWQd3oOHIs6T8Nff8XWFmqRnyBpJkHRx8Ih4PdsK-lPr0yLb7QfFmQxjLcN0gSD2k7cyyKOyUBaM4i5o3rPPtkQ=w650-h370-n',
+    ],
+  },
+  {
+    id: '35a',
+    eyebrow: 'Modell 35A · 30평형',
+    name: 'FAKOHAUS 35A',
+    headline: '부부와 2세대를 위한 콤팩트 3베드룸, FAKOHAUS 35A',
+    body: '1층에 안방, 2층에 침실 2개를 배치한 3 Bed Rooms 주택입니다. 1층 바닥면적이 22평으로 협소한 택지에도 적합하며, 2층에 가족실을 더하면 37평형으로 확장할 수 있습니다.',
+    checks: ['2층 주택 (침실 3)', '2층 발코니', '35평 → 37평 확장 가능'],
+    specs: [
+      ['1층', '74.00㎡ (22.38평)'],
+      ['2층', '43.79㎡ (13.30평)'],
+      ['연면적', '117.79㎡ (35.68평)'],
+      ['주택크기', '9.25m × 8.0m'],
+    ],
+    hero: 'https://lh3.googleusercontent.com/DbY8U1asmOnh4vVeHewilDrBpcWZT0iR2nyF-7phjRFLs6WuDvUbMl1qtpg_43OoTOToCYkShEvt79cUA-FlpLOsBe4hUkJ9s74HDc60QQ=s0',
+    plans: [
+      { label: '1층 평면도', src: 'https://lh3.googleusercontent.com/wCftnjw0ieg3j65bDWZJQ2dUISz8VPln2VYIsmks5pef1rrPkoTUwv0nhOmTHQe6eBSZjCmHqtsn4XnSzGVWvUcI9JpFyHDX4gOi8T_L=w700-h500-n' },
+      { label: '2층 평면도', src: 'https://lh3.googleusercontent.com/4zQVHIUVs21X6Vtgr9F6zd638y8DhzYvYwdkD6E-sfXP_HJFLVd2KQM7INcneA_w9m_TR5knFGwW9xJIFgEhclWWm2dOhMMcsTtRYgevEw=w700-h500-n' },
+    ],
+    gallery: [
+      'https://lh3.googleusercontent.com/BD9lGl3-vHSbUKclGCrgvooKxTQKREpQoZrk27WZaFpWomwTJrZp13NYRP75iAur4f-kX5_gjV77EcwBbmNYPTGh8S9v2c4DIoOsVUPQ=w650-h370-n',
+      'https://lh3.googleusercontent.com/GmpnKIWMZEsrh5o7u0cAoRV1ZkuC0TszvYyGQKRneO5mO-tRYQHj61sLRdBh5xJIZ4BxnY_5o_kMObQnPE2wcA6M5ZP2q9-710Tvs85G=w650-h370-n',
+      'https://lh3.googleusercontent.com/S9gAx2Y5W6emf-NWnxBEa2iWGpPOcPpBU6_TOWbMFFuUkXue8mubJ2AGwQx_mpJqqSBpmuWYAmJmX3jwd4DULH0tKiUr8nAklm7VEr4=w650-h370-n',
+      'https://lh3.googleusercontent.com/oO5MxEQ2K5Hix-OqNjHS8T5fPAWwk90q4BiQ0neIBTLRzN7c9eF_YzkqaCieVFiLSq2lH1cEV6M_TgptTUktQd2QKo6O-FmwgGEyIDEbCA=w650-h370-n',
+    ],
+  },
+  {
+    id: '40a',
+    eyebrow: 'Modell 40A · 40평형',
+    name: 'FAKOHAUS 40A',
+    headline: '1·2층이 독립된 4베드룸, FAKOHAUS 40A',
+    body: '연면적 40.99평의 2층 주택으로 4개의 침실을 갖췄습니다. 1층은 안방과 공용공간, 2층은 독립된 침실과 욕실로 구성되어 세대 간 프라이버시를 배려했습니다.',
+    checks: ['2층 주택 (침실 4)', '2층 발코니', '1층과 2층이 완전히 독립된 구조'],
+    specs: [
+      ['1층', '96.75㎡ (29.26평)'],
+      ['2층', '38.75㎡ (11.72평)'],
+      ['연면적', '135.50㎡ (40.99평)'],
+      ['주택크기', '12.75m × 8.50m'],
+      ['지붕각도', '1층 15° · 2층 25°'],
+    ],
+    hero: 'https://lh3.googleusercontent.com/YAsGG1KNkqRnv2MoqJGlMKfpwXHigBvolQZd0SdfTS3zr8ipenfkXW8_U9T7q7E_SlQGD2k4Eygv7He-Sdb--XFeFHF5vP5z2IDGr0f0Yw=s0',
+    plans: [
+      { label: '1층 평면도', src: 'https://lh3.googleusercontent.com/kX5HNm7dtVGhrnHmffZ-5OF7OBPGo33MqI7CQM6PVVuTd7ZgC_SxHLRgHWooS5WrQ7iS4ZJHhH_5_zi7HYwOAZYXEwELlzjSZ1L1jVLFpA=w700-h500-n' },
+      { label: '2층 평면도', src: 'https://lh3.googleusercontent.com/LTUqTmEmIG4PnqYkZrrsTRZ8hm5-j8UNjHxCh8TME48aCK5j_U-qCzP2cRbAkTZvyY4nnVbMLyTh4YwwdJPClDAYSILori216m8p2oS-=w700-h500-n' },
+    ],
+    gallery: [
+      'https://lh3.googleusercontent.com/YGhEFIrGrvLcxy6qXEu5pCiSe6gqVJb2NWvnQ8vYcpSDFBGUWW__VIqt8mWPm69sCI0Z10cfX7JlihSzM2xTgAPfXNfFXjZq4ldUysTrWg=w650-h370-n',
+      'https://lh3.googleusercontent.com/TPjU8fR2IIFzATC6haa6rlevDlcjN72SdezjvwcVVzrNssjIf6geVyXm5a9TtB6WE1LjRdKY77VUGaWl0jwrY26h0ka2vmPfYs73nFQeJA=w650-h370-n',
+      'https://lh3.googleusercontent.com/ZyO-_Bfg1mGNI6tnGwhDjOF7Qe5mY622__1iy-HZ0kHOfHvO3tKJxN8-hlj5YbT1FLD4ze5GyOj1h2Z1LhNOwxtHOKvmv-28fx9VZiWftw=w650-h370-n',
+      'https://lh3.googleusercontent.com/kjcQiML8j97TjDNxX-Hd9w5O9BWp_YWNRXa8J5Ox1GxQupGduW48hHVupGjMEWKEjvOASoSnwRyqaVcCm06-vHnt3Zlm-A0IzHTszaPe=w650-h370-n',
+    ],
+  },
+  {
+    id: '45a',
+    eyebrow: 'Modell 45A · 40평형',
+    name: 'FAKOHAUS 45A',
+    headline: '독일 클래식 스타일의 정통 2층, FAKOHAUS 45A',
+    body: '전형적인 독일 클래식 주택을 표방한 모델로, 1층은 공용공간, 2층은 침실 중심으로 용도를 명확히 나눴습니다. 2층 지붕 형태에 따라 완만한 경사형과 독일식 급경사 다락방형, 두 가지 입면을 선택할 수 있습니다.',
+    checks: ['독일의 클래식한 디자인', '2층 지붕경사에 따라 2가지 타입', '돌출 가족실을 안방으로 확장 가능'],
+    specs: [
+      ['1층', '74.90㎡ (22.66평)'],
+      ['2층', '76.70㎡ (23.20평)'],
+      ['연면적', '151.60㎡ (45.86평)'],
+      ['주택크기', '10.00m × 8.25m'],
+      ['지붕각도', '40°'],
+    ],
+    hero: 'https://lh3.googleusercontent.com/Jxt-62PlPvI1ZGo40l2RAS2uUMuA5Rbmv3JvFHb7LWdQ2fNNae9vmG6r81VUVHC78_QSvsylarhBn5qoOt4k43WweGRIsZlri1ozUqES=s0',
+    plans: [
+      { label: '1층 평면도', src: 'https://lh3.googleusercontent.com/sWrWcrWJRt0QS_Z7lqtz8azK9wWyMtV3Q1APZJSs4_s2caUtJOPa-pw1K8Ld9u32YQhJWb4k_jKqZJuR7fI7OEpTwyXQEHvDtizMhLxW=w700-h500-n' },
+      { label: '2층 평면도', src: 'https://lh3.googleusercontent.com/fczUbVkksBa-2hNWCbeBRiCRON2BSTit1fh1BszK66T2RNGDJ4SYB85SiaExZ7SMML1vCoXGiDR3wVKA0tlx-HqQSXfUV2jNKtjUtU8Rag=w700-h500-n' },
+    ],
+    gallery: [
+      'https://lh3.googleusercontent.com/5pYKLRMyDWwsl6FCiqWI_ua7_Hqm46FKdg4qxkpeA1I-x3fJcZVrtYdPnKQnmO_0vgTUIEEYwjZit0ikHXp-d114vVWUJ6XfgPaL61P8=w650-h370-n',
+      'https://lh3.googleusercontent.com/DJX9EKm5xaepZ9tqIGsO5VV4Ib7p5bV75jI9EUgwYERNGTr4Ho11sqnvyvawEXMrd4Z8QRFUqyxus_L6NyzfTNrULxRyA1SK7yX2lcCy=w650-h370-n',
+      'https://lh3.googleusercontent.com/Hg3LWzD_rKsTNn5MtIZHauItcq7iOLd8q8THan5-RvsWFMzO4ZFNDtgFfoYVBYQb2yfH2vEbpfK7W9iJcjN8tAhb5k_0O5x6970Ynmw=w650-h370-n',
+      'https://lh3.googleusercontent.com/uNp5T_IKxcyG3rz2X-o9INaLY9wrR6GfvlIsr5O8Ev4vEWsZJH_Kl__rkR6cuwI9Mx84fQTbO6X5OC17FUlLktHExu0-D_FFkvLe4zM=w650-h370-n',
+    ],
+  },
+  {
+    id: '45b',
+    eyebrow: 'MASSIV 시리즈 · 40평형',
+    name: 'MASSIV MAINZ-45',
+    headline: 'MASSIV 시리즈, MAINZ-45',
+    body: '새로운 45평형 표준주택모델 마시브(MASSIV) 시리즈의 MAINZ(마인츠)-45입니다. 1층은 은퇴 부부를 위한 주 생활공간, 2층은 자녀·손님용 침실과 가족실로 구성했으며, 독일 POROTON 내력벽식 조적구조(국산 ALC블록 선택 가능)로 시공합니다.',
+    checks: ['MASSIV 시리즈 표준주택', '1층 부부 생활공간 · 2층 자녀·손님 공간', '2층에 넓은 발코니'],
+    specs: [
+      ['1층', '89.46㎡ (27.06평)'],
+      ['2층', '58.54㎡ (17.71평)'],
+      ['연면적', '148.0㎡ (44.77평)'],
+      ['주택크기', '10.75m × 11.23m'],
+      ['지붕각도', '25°'],
+    ],
+    hero: 'https://lh3.googleusercontent.com/QypNp6x6QRybDkBhvoU5EYHB1s6lkfHt1lqDFOuC4qsmjIeuwj6EqYpeot-faBGx9noCj-95ITufVN6HURM9cNezVq5PfUAwM6X-c4Gcr5nZrXFjzw-jCg=s0',
+    plans: [
+      { label: '1층 평면도', src: 'https://lh3.googleusercontent.com/GHMdDHEP0zZU-1_HYhlMF15boaX3eGmVE6x-K745ojfEqWlUyNFCIcDEexyUfilAzk1Y5KEI9W7hBoNtAGnbdfe5WUUKjBTW8_R0_GYbTmxwI5EniYqm=w700-h500-n' },
+      { label: '2층 평면도', src: 'https://lh3.googleusercontent.com/C4QD-lbfb7sbEeh5pWcgIHWkyj1s0QR4FrvGfNIHb-meZLawnR-V5GRXk8c7l03fOsEjkDsBNAwrtSL0sHiXwqoKZqSk97Bmwz78wmcOP-k8_1R51KV4VPM=w700-h500-n' },
+    ],
+    gallery: [
+      'https://lh3.googleusercontent.com/Y3ezzvpLPt1apqVDAHZpkoYhjndtBrOdpAKlA__iqHI6zjzmFYwoADp4_c6CFCKHMPmvS2oC-ZXRBm7DlwluReGRebRRn40j2QvtomlzL3LIp5E-6BngcTA=w650-h370-n',
+      'https://lh3.googleusercontent.com/TApXR_kamIwr0-T5UGLwnvAptW4NbH7gGL7Vctb-QoTkeO94nVD3zXSa6vAmy_Qrz5iN1DHD00u22l_FX6dNRTM4PUYFxREnilU7YRQUSO4cmjEQ7maknA=w650-h370-n',
+      'https://lh3.googleusercontent.com/Uo4uM95FfIUj4uR_7zcmb7dm3cncscv6X5prp9zflO6keK2MtKD_jpS9eV33j2W1Y0mjW63T35PCB5UoLNz2R8d5bR0zJRJUEnPaPzUYqKUHfKTRdG-3=w650-h370-n',
+      'https://lh3.googleusercontent.com/rIQ9XA3F7e1FGxgL-Hro4OZY0tK5xKZx5UGnE-akxWURF_KeoMryw38oIxfiYaYGet9wwFTQqxIU3QE7JSSD7F7osJSoZ722Q9BsCMqQFM6tRJkHqft8HCE=w650-h370-n',
+    ],
+  },
+  {
+    id: '45c',
+    eyebrow: 'MASSIV 시리즈 · 40평형',
+    name: 'MASSIV LINDAU-43',
+    headline: 'MASSIV 시리즈, LINDAU-43',
+    body: '새로운 45평형 표준주택모델 마시브(MASSIV) 시리즈의 LINDAU(린다우)-43입니다. 개방감 높은 오픈형 거실의 A-Type과 거실 상부를 지붕으로 처리한 B-Type, 두 가지 입면 디자인 중 선택할 수 있습니다.',
+    checks: ['MASSIV 시리즈 표준주택', 'A-Type / B-Type 2가지 디자인', '1층 부부 생활공간 · 2층 자녀·손님 공간'],
+    specs: [
+      ['1층', '99.32㎡ (30.06평)'],
+      ['2층', '43.40㎡ (13.13평)'],
+      ['연면적', '142.77㎡ (약 43.2평)'],
+      ['주택크기', '13.00m × 8.23m'],
+    ],
+    hero: 'https://lh3.googleusercontent.com/NIejH42rPJ227KC-m0J0tpUUq-q1Z179HrqZr2yOPC4KDHG40_NY0qYi0kouy8rbVDAQQsX2SWYe_THOWYNGXi_nWx2d9LU1PjN79LiV41avovNZRf23xQ=s0',
+    plans: [
+      { label: '1층 평면도 (A-Type)', src: 'https://lh3.googleusercontent.com/0FY082ijb5cYWlLINXFBrcbkqAhwcheZGpJcp_v1nPQHDFqhB-m9lR6zasWCV51UJERsXsQG5_y2kiU9vYb8rwmdxFv4JIMW3c4JeRcGHT0LjBO05-tPUg=w700-h500-n' },
+      { label: '2층 평면도 (B-Type)', src: 'https://lh3.googleusercontent.com/yMPozPv11q4HifSk5V1-hgEi5l6Tqp1iBTz1jzTqA0xTcjtUGx064l5irexkeEMp4qXj5-swlJ9kB13hjr5NiDqakaiQbe_JWPReWqCcuX2xzkYm7Sl8Ww=w700-h500-n' },
+    ],
+    gallery: [
+      'https://lh3.googleusercontent.com/_iVXTGyFJ5-nrUugWqouMavflz2f3zra7KhFwHHuzkBdG_GVb-4qA779_LL-PuQlTPmIkF6Tcj0Clh2VtUwQub9CfuQFoi1YHMlK9ebi6pbno_Bp-KU0=w650-h370-n',
+      'https://lh3.googleusercontent.com/k8WP7-Eed5C2A0wyMvjULc4jXhVAi4AC54M26j62CDaAt30eQ5XCXXv1wDfBZB5iqedJXAM87bLaeDQBXFjvR9Lkp_cfNnNDrTDxliYlqa1pE5f6s6FJ=w650-h370-n',
+      'https://lh3.googleusercontent.com/AYdAQzaz5zGaq0HZ-G6AQ1Y-iFBAAA3eV1_msrXOuRAe9Ywh55n4wm27VonZ3XLjt97EASzTfMxTouzP3PBjoWSuKhZvv6LLeC3GTPqC3LYpEMXlG2kXDQ=w650-h370-n',
+      'https://lh3.googleusercontent.com/_49KbqN91jbMRmvnrxqzg4-4xddakCdWeeWoa4MXajYwa2A-hXKFiwGzIGnzPfh_yGU58-vujbSepo3f9QPHY7FOzCwfiGkAyUNIH7xBJTVEcoP-7C_N=w650-h370-n',
+    ],
+  },
+  {
+    id: '45d',
+    eyebrow: 'MASSIV 시리즈 · 40평형',
+    name: 'MASSIV DRESDEN-45',
+    headline: 'MASSIV 시리즈, DRESDEN-45',
+    body: '새로운 45평형 표준주택모델 마시브(MASSIV) 시리즈의 DRESDEN(드레스덴)-45입니다. 독일의 전통적인 주택 디자인이 특징이며, 1층과 2층 모두 침실·거실·주방(간이)을 갖춰 세대별 독립적인 생활이 가능합니다. 외관은 A/B/C 세 가지 타입 중 선택할 수 있습니다.',
+    checks: ['MASSIV 시리즈 표준주택', 'A/B/C 3가지 외관 디자인', '1·2층 모두 독립 생활공간 구성'],
+    specs: [
+      ['1층', '89.46㎡ (27.06평)'],
+      ['2층', '58.54㎡ (17.71평)'],
+      ['연면적', '148.00㎡ (44.77평)'],
+      ['주택크기', '10.00m × 8.75m'],
+      ['지붕각도', '25°'],
+    ],
+    hero: 'https://lh3.googleusercontent.com/LrLZL_V3d6VqjfT36w3Ycw5NpCVtY2zpZYboViwQZDOU0Z9cd8SXErh-PhJ9cANbiit5Wx4jvjEboTzLE9Agv83jSanD3nUdLQMKZ17Fd9d8HSHzJ7CVXmY=s0',
+    plans: [
+      { label: '1층 평면도', src: 'https://lh3.googleusercontent.com/lM3InVra0jPdfxODnxWSPoAgVNDI1Ifp-iNyxHlgWRYNZv4U6ewiRG2nKZWJchkT_oBrBWUwazsIZDyHJP1dF6_DfGy1jmaIZIVSHr3kUjqvaaYT8WfhDA=w700-h500-n' },
+      { label: '2층 평면도', src: 'https://lh3.googleusercontent.com/J5G3g_2aPwpr5AQ10YYgCvYJPPqEPdaUWFttmJ5kwvmtFOi_F46cBCLQ6Aq-a17PKHD-8sAWH2QlymTwEzWHNW0eISRVb_Ra9dQd-67xZf6KBJpJAaXwdig=w700-h500-n' },
+    ],
+    gallery: [
+      'https://lh3.googleusercontent.com/_iDpSOe4u8RRl8fXgXcGrS4oiVgn9nSU23MZv7-c49Fo6PEATOzqQzeikiegsPiZdCfVnCWgrxM3jB17RiOnjsPZIwphk6N59h0MCOvjc_pfm8YLxMISOmU=w650-h370-n',
+      'https://lh3.googleusercontent.com/UC1R566RBi9eAyDwyiJQfgcP4dvDzX0ZiJkvswMFrK4ZBGTb-1yyk4uSvzRWdtSCBDj0xORki1c9r_NWSwxKfqIYcrFg0mPlsISwstxh7GxvoxsFYbYsF7k=w650-h370-n',
+      'https://lh3.googleusercontent.com/4tFm4UT_r1yTEZrNJBvQw3yu_NpeQ9Ld-WJGR1eGX0z41Wh7lpUYkQGUNfkp6N4h_jd8v08WeinObMgggPyRyuDLWKVI95IDhDFaf_0BOWOamDGWA_3d3m8=w650-h370-n',
+    ],
+  },
+  {
+    id: '50a',
+    eyebrow: 'Modell 50A · 50평형',
+    name: 'FAKOHAUS 50A',
+    headline: '4베드룸 중형주택, FAKOHAUS 50A',
+    body: '가로 12.5m, 세로 11.25m의 직사각형 평면으로 1층 34평, 2층 16평, 총 50평형의 중형주택입니다. 1층과 2층에 각각 2개씩 총 4개의 침실을 배치했고, 침실 공간은 1층 공용실과 완벽히 분리됩니다.',
+    checks: ['2층 주택 (침실 4)', '1층 공용실과 완벽히 분리된 침실 공간', '아일랜드형 주방 · 남측 대형 창'],
+    specs: [
+      ['1층', '111.50㎡ (33.73평)'],
+      ['2층', '53.75㎡ (16.26평)'],
+      ['연면적', '165.25㎡ (49.99평)'],
+      ['주택크기', '12.50m × 11.25m'],
+    ],
+    hero: 'https://lh3.googleusercontent.com/pgRw9ffgRk19HnlpvyY1bvlDs2TpEHBe1QHNAihxreWPpBRnsvaewt0cPyGBTnXh1jOwqVrdfJeCi7O47oQRrv2iXk9xSk4OS1bIp2yGdQ=s0',
+    plans: [
+      { label: '1층 평면도', src: 'https://lh3.googleusercontent.com/d6Y7CfQstv4xEvoAvnWKk2lJtc875afetUIPnO80j1qfz68gYSFqZaRpTl7sP-p2Dt_D_pcNFdfKagL0BKRqeky1Z1pPLWUkeMJppw0bLQ=w700-h500-n' },
+      { label: '2층 평면도', src: 'https://lh3.googleusercontent.com/OTO5FUyd6nGJ4ZGsyABzvcvOZ72nj42Mmtt8z-KxlsWeKM4AxmeQ0nu_I-QyzMJBKjb6-2dU6i3Bd9o7IKxBGZnnIfqhSXZvu0Uy8tTt=w700-h500-n' },
+    ],
+    gallery: [
+      'https://lh3.googleusercontent.com/SPJ66mR-pAkjmFYjwPE3W3nZbMBCLV8MRcfzw1luSHSwZFSaqNQLgR_lfNGGXkQoIyBOT96ht2I8BHmv_U0c1cZaeIxzu7uqGmd0gQ8=w650-h370-n',
+      'https://lh3.googleusercontent.com/qWd9zPyOPOmb_GUQwmqdqsaftNUb_DVzbGd6b3XrUby914vAOJVei0Nvso_sHd7XOZYfdMxFPWDjD7Wc7sg62Tywk1ARDStNFWyfKA5z=w650-h370-n',
+      'https://lh3.googleusercontent.com/-z7iSxaMINe6oB1kke_aPoNcjZocMhKpGB9OxBO7e_xECO2bw-t_1zwdJsKSMo-lwZO77HSk6xX7EfIRteJYwMpn11VJKp_iYaOPE0j7=w650-h370-n',
+      'https://lh3.googleusercontent.com/ByNFJihDptIlhOxR4EC9DNvKIfEIc9xQ3V_TNzoO6rRoHIA6XMc8FE6rvF_azjEhs3Pm1WBQq7V1JmyiT1EEx1QulmctmcRJPfLXFEA_vQ=w650-h370-n',
+    ],
+  },
+];
 ---
 
 <BaseLayout
   title="주택모델 | FAKOHAUS"
-  description="FAKOHAUS 시그니처 주택모델 25A · 25B. ALC 또는 POROTON 골조로 선택 시공 가능한 독일식 표준 설계."
+  description="20평형부터 50평형까지, FAKOHAUS 표준주택 11개 모델. ALC 또는 POROTON 골조로 선택 시공 가능한 독일식 표준 설계."
 >
   <div class="sub-hero">
     <div class="wrap">
       <div class="crumb">Home / 주택모델</div>
       <h1>주택모델</h1>
-      <p>독일식 표준 설계를 국내 주거환경에 맞게 최적화한 FAKOHAUS 시그니처 모델입니다. 두 모델 모두 ALC 또는 POROTON 골조로 선택 시공이 가능합니다.</p>
+      <p>독일식 표준 설계를 국내 주거환경에 맞게 최적화한 FAKOHAUS 주택모델입니다. 20평형부터 50평형까지 11개 모델을 만나보실 수 있으며, 모든 모델은 ALC 또는 POROTON 골조로 선택 시공이 가능합니다.</p>
     </div>
   </div>
   <div class="wrap">
     <div class="tabs">
-      <button data-tab="25a" class="on">FAKOHAUS 25A</button>
-      <button data-tab="25b">FAKOHAUS 25B</button>
+      {models.map((m, i) => (
+        <button data-tab={m.id} class={i === 0 ? 'on' : ''}>{m.name}</button>
+      ))}
     </div>
   </div>
 
-  <!-- 25A -->
-  <div class="tabpane on" data-pane="25a">
-    <div class="sec">
-      <div class="wrap split">
-        <div class="media">
-          <svg class="ph" viewBox="0 0 560 400"><rect width="560" height="400" fill="#ede9fe"/><rect y="310" width="560" height="90" fill="#c4b5fd" opacity=".5"/><polygon points="100,190 280,90 460,190" fill="#3b0764"/><rect x="120" y="190" width="320" height="130" fill="#fff" stroke="#7c3aed" stroke-width="2"/><rect x="150" y="215" width="66" height="80" fill="#7c3aed" opacity=".8"/><rect x="345" y="215" width="66" height="80" fill="#7c3aed" opacity=".8"/><rect x="250" y="225" width="62" height="95" fill="#4c1d95"/><text x="280" y="365" text-anchor="middle" font-family="Pretendard" font-size="16" fill="#4c1d95" letter-spacing="4">FAKOHAUS 25A</text></svg>
-        </div>
-        <div>
-          <span class="eyebrow">Modell 25A</span>
-          <h3>단층의 여유, FAKOHAUS 25A</h3>
-          <p>은퇴 후 부부의 라이프스타일에 맞춘 단층 중심 모델입니다. 계단 없는 무장애 동선, 남향 거실 중심의 개방형 평면으로 50대 이상 건축주께 가장 많이 선택받는 모델입니다.</p>
-          <ul class="checks">
-            <li>거실–주방–안방을 잇는 단층 무장애 동선</li>
-            <li>남향 전면창(GAULHOFER 시스템창호) 표준 적용</li>
-            <li>다락 옵션으로 손주 방·취미 공간 확장 가능</li>
-            <li>ALC 350mm 또는 POROTON 365mm 외벽 선택</li>
-          </ul>
-          <div style="margin-top:30px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn btn-primary" href="/contact">이 모델로 상담하기</a>
-            <a class="btn btn-ghost" href="/downloads#catalog">도면 자료 받기</a>
+  {models.map((m, i) => (
+    <div class={`tabpane${i === 0 ? ' on' : ''}`} data-pane={m.id}>
+      <div class="sec">
+        <div class={`wrap split${i % 2 === 1 ? ' rev' : ''}`}>
+          <div class="media">
+            <img src={m.hero} alt={m.name} loading="lazy" />
+          </div>
+          <div>
+            <span class="eyebrow">{m.eyebrow}</span>
+            <h3>{m.headline}</h3>
+            <p>{m.body}</p>
+            <ul class="checks">
+              {m.checks.map((c) => (
+                <li>{c}</li>
+              ))}
+            </ul>
+            <div style="margin-top:30px;display:flex;gap:12px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="/contact">이 모델로 상담하기</a>
+              <a class="btn btn-ghost" href="/downloads#catalog">도면 자료 받기</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="sec tint" style="padding-top:0;background:transparent">
-      <div class="wrap">
-        <h3 style="font-size:24px;margin-bottom:22px">기본 사양</h3>
-        <table class="spec-table">
-          <tr><th>건축면적</th><td>112.4㎡ (약 34평) · 단층 + 다락 옵션</td></tr>
-          <tr><th>구성</th><td>침실 3 · 욕실 2 · 거실 · 주방/식당 · 다용도실 · 포치</td></tr>
-          <tr><th>골조</th><td>ALC 350mm 외벽 / POROTON 365mm 외벽 (선택)</td></tr>
-          <tr><th>지붕</th><td>경사지붕 35° · CREATON 점토기와</td></tr>
-          <tr><th>창호</th><td>GAULHOFER 독일식 시스템창호 (3중 유리)</td></tr>
-          <tr><th>외벽마감</th><td>alsecco 외단열 미장 마감 시스템</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- 25B -->
-  <div class="tabpane" data-pane="25b">
-    <div class="sec">
-      <div class="wrap split rev">
-        <div class="media">
-          <svg class="ph" viewBox="0 0 560 400"><rect width="560" height="400" fill="#ede9fe"/><rect y="310" width="560" height="90" fill="#c4b5fd" opacity=".5"/><polygon points="110,150 250,70 390,150" fill="#3b0764"/><rect x="130" y="150" width="240" height="170" fill="#fff" stroke="#7c3aed" stroke-width="2"/><rect x="370" y="200" width="110" height="120" fill="#f4edff" stroke="#7c3aed" stroke-width="2"/><rect x="155" y="175" width="56" height="60" fill="#7c3aed" opacity=".8"/><rect x="290" y="175" width="56" height="60" fill="#7c3aed" opacity=".8"/><rect x="155" y="250" width="56" height="60" fill="#7c3aed" opacity=".55"/><rect x="290" y="250" width="56" height="70" fill="#4c1d95"/><rect x="395" y="230" width="60" height="55" fill="#c4b5fd"/><text x="280" y="365" text-anchor="middle" font-family="Pretendard" font-size="16" fill="#4c1d95" letter-spacing="4">FAKOHAUS 25B</text></svg>
+      <div class="sec tint" style="padding-top:0;background:transparent">
+        <div class="wrap">
+          <h3 style="font-size:24px;margin-bottom:22px">기본 사양</h3>
+          <table class="spec-table">
+            {m.specs.map(([k, v]) => (
+              <tr>
+                <th>{k}</th>
+                <td>{v}</td>
+              </tr>
+            ))}
+          </table>
         </div>
-        <div>
-          <span class="eyebrow">Modell 25B</span>
-          <h3>2세대의 품격, FAKOHAUS 25B</h3>
-          <p>복층 구조에 별동(차고·취미실)을 더한 확장형 모델입니다. 자녀 세대의 방문이 잦거나 재택 업무·취미 공간이 필요한 건축주께 적합하며, 독일 전원주택의 전형적인 매스감을 살렸습니다.</p>
-          <ul class="checks">
-            <li>1층 공용부 + 2층 프라이빗 침실 구성</li>
-            <li>별동 차고/취미실 연계 설계 (옵션)</li>
-            <li>계단실 천창으로 자연채광 극대화</li>
-            <li>축열 성능이 높은 POROTON 골조 추천 사양</li>
-          </ul>
-          <div style="margin-top:30px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn btn-primary" href="/contact">이 모델로 상담하기</a>
-            <a class="btn btn-ghost" href="/downloads#catalog">도면 자료 받기</a>
+      </div>
+      {m.plans.length > 0 && (
+        <div class="sec" style="padding-top:0">
+          <div class="wrap">
+            <h3 style="font-size:24px;margin-bottom:22px">평면도</h3>
+            <div class="model-plans">
+              {m.plans.map((p) => (
+                <figure>
+                  <img src={p.src} alt={`${m.name} ${p.label}`} loading="lazy" />
+                  <figcaption>{p.label}</figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
+      {m.gallery.length > 0 && (
+        <div class="sec tint" style="padding-top:0;background:transparent">
+          <div class="wrap">
+            <h3 style="font-size:24px;margin-bottom:22px">내부 이미지</h3>
+            <div class="model-gallery">
+              {m.gallery.map((src) => (
+                <img src={src} alt={`${m.name} 내부 이미지`} loading="lazy" />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
-    <div class="sec tint" style="padding-top:0;background:transparent">
-      <div class="wrap">
-        <h3 style="font-size:24px;margin-bottom:22px">기본 사양</h3>
-        <table class="spec-table">
-          <tr><th>건축면적</th><td>148.8㎡ (약 45평) · 복층 + 별동 옵션</td></tr>
-          <tr><th>구성</th><td>침실 4 · 욕실 3 · 거실 · 주방/식당 · 서재 · 발코니</td></tr>
-          <tr><th>골조</th><td>POROTON 365mm 외벽 (ALC 선택 가능)</td></tr>
-          <tr><th>지붕</th><td>경사지붕 40° · CREATON 점토기와 · 도머창 옵션</td></tr>
-          <tr><th>창호</th><td>GAULHOFER 독일식 시스템창호 (3중 유리)</td></tr>
-          <tr><th>외벽마감</th><td>alsecco / Caparol 외단열 마감 시스템</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
+  ))}
 </BaseLayout>

@@ -19,7 +19,16 @@ function isActive(href: string) {
           <a href={item.href} class={isActive(item.href) ? 'on' : ''}>{item.label}</a>
           <ul class="dd">
             {item.children.map((child) => (
-              <li><a href={child.href}>{child.label}</a></li>
+              <li class={child.children?.length ? 'has-sub' : ''}>
+                <a href={child.href}>{child.label}</a>
+                {child.children?.length ? (
+                  <ul class="dd2">
+                    {child.children.map((sub) => (
+                      <li><a href={sub.href}>{sub.label}</a></li>
+                    ))}
+                  </ul>
+                ) : null}
+              </li>
             ))}
           </ul>
         </li>
@@ -40,7 +49,16 @@ function isActive(href: string) {
       <a href={item.href}>{item.label}</a>
       <ul>
         {item.children.map((child) => (
-          <li><a href={child.href}>{child.label}</a></li>
+          <li>
+            <a href={child.href}>{child.label}</a>
+            {child.children?.length ? (
+              <ul class="sub">
+                {child.children.map((sub) => (
+                  <li><a href={sub.href}>{sub.label}</a></li>
+                ))}
+              </ul>
+            ) : null}
+          </li>
         ))}
       </ul>
     </div>

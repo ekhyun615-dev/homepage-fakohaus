@@ -13,7 +13,7 @@ export const company = {
   kakaoUrl: 'https://pf.kakao.com',
 };
 
-export type NavChild = { label: string; href: string };
+export type NavChild = { label: string; href: string; children?: NavChild[] };
 export type NavItem = { label: string; href: string; children: NavChild[] };
 
 export const nav: NavItem[] = [
@@ -21,8 +21,35 @@ export const nav: NavItem[] = [
     label: '주택모델',
     href: '/models',
     children: [
-      { label: 'FAKOHAUS 25A', href: '/models#25a' },
-      { label: 'FAKOHAUS 25B', href: '/models#25b' },
+      {
+        label: '20평',
+        href: '/models#25a',
+        children: [
+          { label: 'FAKOHAUS 25A', href: '/models#25a' },
+          { label: 'FAKOHAUS 25B', href: '/models#25b' },
+        ],
+      },
+      {
+        label: '30평',
+        href: '/models#30a',
+        children: [
+          { label: 'FAKOHAUS 30A', href: '/models#30a' },
+          { label: 'FAKOHAUS 32A', href: '/models#32a' },
+          { label: 'FAKOHAUS 35A', href: '/models#35a' },
+        ],
+      },
+      {
+        label: '40평',
+        href: '/models#40a',
+        children: [
+          { label: 'FAKOHAUS 40A', href: '/models#40a' },
+          { label: 'FAKOHAUS 45A', href: '/models#45a' },
+          { label: 'MASSIV MAINZ-45', href: '/models#45b' },
+          { label: 'MASSIV LINDAU-43', href: '/models#45c' },
+          { label: 'MASSIV DRESDEN-45', href: '/models#45d' },
+        ],
+      },
+      { label: '50평', href: '/models#50a' },
     ],
   },
   {
