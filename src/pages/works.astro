@@ -53,30 +53,237 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="box">
       <div id="lb-img"></div>
       <div class="cap"><b id="lb-title"></b><button class="lb-x" id="lb-close">닫기 ✕</button></div>
+      <div class="lb-spec" id="lb-spec"></div>
     </div>
   </div>
 </BaseLayout>
 
 <script>
-  type Work = { t: string; s: string; k: 'alc' | 'poroton' };
+  type Work = { t: string; s: string; k: 'alc' | 'poroton'; img?: string; spec?: [string, string][] };
 
-  // TODO: 실제 시공사례 사진으로 교체 (현재는 플레이스홀더 일러스트 + 예시 데이터)
   const worksFull: Work[] = [
-    { t: '양평 문호리 주택', s: 'ALC 350 완축 · 34평 · 2025', k: 'alc' },
-    { t: '김포 운양동 주택', s: 'POROTON 365 완축 · 45평 · 2025', k: 'poroton' },
-    { t: '아산 배방 주택', s: 'ALC 350 완축 · 38평 · 2024', k: 'alc' },
-    { t: '원주 소초 주택', s: 'POROTON 365 완축 · 42평 · 2024', k: 'poroton' },
-    { t: '용인 처인 주택', s: 'ALC 300 완축 · 30평 · 2023', k: 'alc' },
-    { t: '파주 문산 주택', s: 'POROTON 365 완축 · 48평 · 2023', k: 'poroton' },
+    {
+      t: '양평 옥천주택',
+      s: 'POROTON 주택',
+      k: 'poroton',
+      img: '/images/poroton-yangpyeong-okcheon.png',
+      spec: [
+        ['연면적', '118.3m² (35.79평)'],
+        ['골조', '독일 Wienerberger, 외벽 퍼라이트 충진 POROTON T7-365mm, 내벽 POROTON 175/240mm'],
+        ['외벽마감', '독일 alsecco, 알시톱'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, 스프레이플라스터 FA + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, FUTURA (푸투라/와인색/반무광)'],
+        ['창문', '오스트리아 Gaulhofer, ENERGYLINE-P85 (3중 유리, 양면 Low E-coating)'],
+        ['지붕 물받이', '독일 Zambelli, 코팅 아연도금'],
+      ],
+    },
+    {
+      t: '남양주주택',
+      s: 'POROTON 주택',
+      k: 'poroton',
+      img: '/images/poroton-namyangju.jpg',
+      spec: [
+        ['연면적', '148.24m² (44.84평)'],
+        ['골조', '독일 Wienerberger, 외벽 퍼라이트 충진 POROTON T7-425mm, 내벽 POROTON 115/240mm'],
+        ['외벽마감', '독일 alsecco, 알시톱'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, Capaver + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, FUTURA (푸투라/적색/유광)'],
+        ['창문', '오스트리아 Gaulhofer, ENERGYLINE-85S (3중 유리, 양면 Low E-coating)'],
+        ['현관문', '오스트리아 Gaulhofer, EXCLUSIVE AGE1128 (알루미늄)'],
+        ['지붕 물받이', '독일 Zambelli, 코팅 아연도금'],
+      ],
+    },
+    {
+      t: '포천 직동리주택',
+      s: 'POROTON 주택',
+      k: 'poroton',
+      img: '/images/poroton-pocheon-jikdongri.jpg',
+      spec: [
+        ['연면적', '101.69m² (30.75평)'],
+        ['골조', '독일 Wienerberger, 외벽 퍼라이트 충진 POROTON T7-42.5-P, 내벽 POROTON 115/175mm'],
+        ['외벽마감', '독일 alsecco, 알시톱'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, Capaver + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, FUTURA (푸투라/적색/유광)'],
+        ['창문', '오스트리아 Gaulhofer, ENERGYLINE-85S (3중 유리, 양면 Low E-coating)'],
+        ['현관문', '오스트리아 Gaulhofer, EXCLUSIVE AGE1232 (알루미늄)'],
+        ['지붕 물받이', '독일 Zambelli, 코팅 아연도금'],
+      ],
+    },
+    {
+      t: '양평서종주택',
+      s: 'POROTON 주택',
+      k: 'poroton',
+      img: '/images/poroton-yangpyeong-seojong.jpg',
+      spec: [
+        ['연면적', '138.31m² (41.838평)'],
+        ['골조', '독일 Wienerberger, 외벽 퍼라이트 충진 POROTON T7-365mm, 내벽 POROTON 115/175mm'],
+        ['외벽마감', '독일 Roeben, Brick-Slip Marseille NF, Toulouse NF'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, Capaver + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, DOMINO (도미노/진회색/뉘앙스)'],
+        ['창문', '오스트리아 Gaulhofer, ENERGYLINE-85S (3중 유리, 양면 Low E-coating)'],
+        ['방문', '이태리 Rubner 원목도어'],
+        ['현관문', '오스트리아 Gaulhofer, 원목 NATURALLINE (원목현관문)'],
+        ['계단', '독일 Alber-Treppen, 원목계단'],
+        ['바닥마감재', '독일 Roeben, Fine stoneware (GALLERY, Warm grey)'],
+        ['지붕 물받이', '독일 Zambelli, 코팅 아연도금'],
+      ],
+    },
+    {
+      t: '포항주택',
+      s: 'POROTON 주택',
+      k: 'poroton',
+      img: '/images/poroton-pohang.jpg',
+      spec: [
+        ['연면적', '109.56m² (33.14평)'],
+        ['골조', '독일 Wienerberger, 외벽 POROTON-Plan-T10 300mm, 내벽 POROTON 115/175/240mm'],
+        ['외벽마감', '독일 alsecco, 알시톱'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, Capaver + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, HARMONIE (하모니/와인적색/뉘앙스)'],
+        ['창문', '오스트리아 Gaulhofer, ENERGYLINE-85S (3중 유리, 양면 Low E-coating)'],
+        ['현관문', '오스트리아 Gaulhofer, 원목 NATURALLINE (원목현관문)'],
+        ['계단', '독일 Alber-Treppen, 원목계단'],
+        ['바닥마감재', '독일 Roeben, Fine stoneware(샌드그레이), 국산 강마루'],
+        ['지붕 물받이', '독일 Zambelli, 코팅 아연도금'],
+      ],
+    },
+    {
+      t: '추풍령주택',
+      s: 'POROTON 주택',
+      k: 'poroton',
+      img: '/images/poroton-chupungnyeong.jpg',
+      spec: [
+        ['연면적', '115.58m² (34.96평)'],
+        ['골조', '독일 Wienerberger, 외벽 충진 POROTON T7-36.5-P, 내벽 POROTON 175mm'],
+        ['외벽마감', '독일 alsecco, 알시톱'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, Capaver + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, HARMONIE (하모니/와인적색/뉘앙스)'],
+        ['창문', '오스트리아 Gaulhofer, ENERGYLINE-85S (3중 유리, 양면 Low E-coating)'],
+        ['현관문', '오스트리아 Gaulhofer, 원목 NATURALLINE (원목현관문)'],
+        ['계단', '독일 Alber-Treppen, 원목계단'],
+        ['바닥마감재', '국산 강마루'],
+        ['지붕 물받이', '독일 Zambelli, 코팅 아연도금'],
+      ],
+    },
+    {
+      t: '완주주택',
+      s: 'POROTON 주택',
+      k: 'poroton',
+      img: '/images/poroton-wanju.jpg',
+      spec: [
+        ['연면적', '150.49m² (45.52평)'],
+        ['골조', '독일 Wienerberger POROTON T9-36.5, 내벽 POROTON 75, 115mm'],
+        ['외벽마감', '독일 alsecco, 알시톱'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, Capaver + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, FUTURA (유광 와인적색)'],
+        ['창문', '오스트리아 Gaulhofer, ENERGYLINE-85S (3중 유리, 양면 Low E-coating)'],
+        ['현관문', '오스트리아 Gaulhofer, 원목 NATURALLINE (원목현관문)'],
+        ['계단', '독일 Alber-Treppen, 원목계단'],
+        ['바닥마감재', '국산 강마루'],
+        ['지붕 물받이', '독일 Zambelli, 코팅 아연도금'],
+      ],
+    },
+    {
+      t: '용인 고기동주택',
+      s: 'POROTON 주택',
+      k: 'poroton',
+      img: '/images/poroton-yongin-gogidong.jpg',
+      spec: [
+        ['연면적', '151.68m² (45.88평)'],
+        ['골조', '독일 Wienerberger T9-36.5 + 외단열시스템, 내벽(T24, T17.5)'],
+        ['외벽마감', '독일 alsecco + 멜도퍼 (URBAN CLASSIC)'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, Capaver + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, HARMONIE (무연탄색, NUANCE)'],
+        ['창문', '오스트리아 Gaulhofer, ENERGYLINE-85S (3중 유리, 양면 Low E-coating)'],
+        ['현관문', '오스트리아 Gaulhofer, 원목 오크'],
+        ['계단', '독일 Alber-Treppen, 원목계단'],
+        ['지붕 물받이', '독일 Zambelli, Color Coated Gutter'],
+      ],
+    },
+    {
+      t: '광양주택-212',
+      s: 'ALC 주택',
+      k: 'alc',
+      img: '/images/alc-gwangyang-212.jpg',
+      spec: [
+        ['연면적', '163.20m² (49.36평)'],
+        ['골조', '국산, 외벽(ALC블럭 T300), 내벽(ALC블럭 T200, T125), 바닥 슬라브(ALC패널 T200), 지붕 슬라브(ALC패널 T175, 150)'],
+        ['외벽마감', '독일 alsecco, 알시톱 + 독일 Roben, Blick-slips (oslo)'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, Capaver + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, FUTURA (dark blue, NOBLESS)'],
+        ['창문', '오스트리아 Gaulhofer, ENERGYLINE-85S (3중 유리, 양면 Low E-coating)'],
+        ['현관문', '오스트리아 Gaulhofer, 원목 NATURALLINE'],
+        ['계단', '독일 Alber-Treppen, 원목계단'],
+        ['바닥마감재', '독일 Roben, Stoneware Floor'],
+        ['지붕 물받이', '독일 Zambelli, Color Coated Gutter'],
+      ],
+    },
+    {
+      t: '광양주택-211',
+      s: 'ALC 주택',
+      k: 'alc',
+      img: '/images/alc-gwangyang-211.jpg',
+      spec: [
+        ['연면적', '168.00m² (50.82평)'],
+        ['골조', '국산, 외벽(ALC블럭 T300), 내벽(ALC블럭 T200, T125), 바닥 슬라브(ALC패널 T200), 지붕 슬라브(ALC패널 T175, 150)'],
+        ['외벽마감', '독일 alsecco, 알시톱 + 독일 Roben, 포인트 Blick-slips (Chelsea)'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, Capaver + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, FUTURA (dark blue, NOBLESS)'],
+        ['창문', '오스트리아 Gaulhofer, ENERGYLINE-85S (3중 유리, 양면 Low E-coating)'],
+        ['현관문', '국산'],
+        ['계단', '국산 ALC'],
+        ['바닥마감재', '국산 구정마루, 강마루'],
+        ['지붕 물받이', '독일 Zambelli, Color Coated Gutter'],
+      ],
+    },
+    {
+      t: '광양주택-209',
+      s: 'ALC 주택',
+      k: 'alc',
+      img: '/images/alc-gwangyang-209.jpg',
+      spec: [
+        ['연면적', '135.00m² (40.84평)'],
+        ['골조', '국산, 외벽(ALC블럭 T300), 내벽(ALC블럭 T200, T125), 바닥 슬라브(ALC패널 T200), 지붕 슬라브(ALC패널 T175, 150)'],
+        ['외벽마감', '독일 alsecco, 알시톱'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, Capaver + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, FUTURA (schiferton, NUANCE)'],
+        ['창문', '오스트리아 Gaulhofer, ENERGYLINE-85S (3중 유리, 양면 Low E-coating)'],
+        ['현관문', '오스트리아 Gaulhofer, 원목 NATURALLINE'],
+        ['계단', '국산 ALC'],
+        ['바닥마감재', '국산 구정마루, 강마루'],
+        ['지붕 물받이', '독일 Zambelli, Color Coated Gutter'],
+      ],
+    },
   ];
+  // TODO: 나머지 반축공사 사례 사진·스펙 확보되는 대로 추가
   const worksHalf: Work[] = [
-    { t: '양양 손양 주택', s: 'ALC 골조+외피 반축 · 2025', k: 'alc' },
-    { t: '제천 백운 주택', s: 'POROTON 골조+외피 반축 · 2024', k: 'poroton' },
-    { t: '홍천 북방 주택', s: 'ALC 골조+외피 반축 · 2024', k: 'alc' },
-    { t: '세종 전동 주택', s: 'POROTON 골조+외피 반축 · 2023', k: 'poroton' },
+    {
+      t: '삼척주택',
+      s: 'ALC 주택',
+      k: 'alc',
+      img: '/images/alc-samcheok.jpg',
+      spec: [
+        ['연면적', '84.46m² (25.55평)'],
+        ['골조', '국산, 외벽(ALC블럭 T350), 내벽(ALC블럭 T200, T150), 지붕 슬라브(ALC패널 T200)'],
+        ['외벽마감', '독일 alsecco, 알시톱'],
+        ['내벽마감', '독일 alsecco, 인텍S + 독일 Caparol, Capaver + Indeko-Plus'],
+        ['지붕 기와', '독일 CREATON, FUTURA (뉘앙스, 와인색)'],
+      ],
+    },
   ];
 
   const houseSVG = (hue: string) => `<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block"><rect width="400" height="240" fill="#ede9fe"/><rect y="185" width="400" height="55" fill="#c4b5fd" opacity=".45"/><polygon points="80,115 200,55 320,115" fill="${hue}"/><rect x="95" y="115" width="210" height="72" fill="#fff" stroke="#7c3aed" stroke-width="2"/><rect x="115" y="130" width="42" height="45" fill="#7c3aed" opacity=".8"/><rect x="245" y="130" width="42" height="45" fill="#7c3aed" opacity=".8"/><rect x="180" y="135" width="40" height="52" fill="#4c1d95"/></svg>`;
+
+  const media = (w: Work) =>
+    w.img
+      ? `<img src="${w.img}" alt="${w.t}" loading="lazy" style="width:100%;aspect-ratio:400/240;object-fit:cover;display:block" />`
+      : houseSVG(w.k === 'alc' ? '#3b0764' : '#4c1d95');
+
+  const specTable = (spec?: [string, string][]) =>
+    spec && spec.length
+      ? `<table class="spec-table">${spec.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join('')}</table>`
+      : '';
+
+  const workLookup = new Map<string, Work>();
 
   function renderGal(id: string, data: Work[]) {
     const el = document.getElementById(id);
@@ -84,9 +291,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     el.innerHTML = data
       .map(
         (w) => `
-      <div class="gitem" data-k="${w.k}" data-t="${w.t}" data-s="${w.s}">
+      <div class="gitem" data-k="${w.k}" data-t="${w.t}" data-s="${w.s}" data-img="${w.img ?? ''}">
         <span class="badge">${w.k === 'alc' ? 'ALC' : 'POROTON'}</span>
-        ${houseSVG(w.k === 'alc' ? '#3b0764' : '#4c1d95')}
+        ${media(w)}
         <div class="cap"><b>${w.t}</b><small>${w.s}</small></div>
       </div>`
       )
@@ -94,6 +301,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   renderGal('galFull', worksFull);
   renderGal('galHalf', worksHalf);
+  [...worksFull, ...worksHalf].forEach((w) => workLookup.set(w.t, w));
 
   /* filter */
   document.querySelectorAll<HTMLElement>('.filterbar').forEach((bar) => {
@@ -116,8 +324,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     if (it && lb) {
       const lbImg = document.getElementById('lb-img');
       const lbTitle = document.getElementById('lb-title');
-      if (lbImg) lbImg.innerHTML = houseSVG(it.dataset.k === 'alc' ? '#3b0764' : '#4c1d95');
+      const lbSpec = document.getElementById('lb-spec');
+      if (lbImg) {
+        lbImg.innerHTML = it.dataset.img
+          ? `<img src="${it.dataset.img}" alt="${it.dataset.t}" style="width:100%;display:block" />`
+          : houseSVG(it.dataset.k === 'alc' ? '#3b0764' : '#4c1d95');
+      }
       if (lbTitle) lbTitle.textContent = `${it.dataset.t} — ${it.dataset.s}`;
+      if (lbSpec) lbSpec.innerHTML = specTable(it.dataset.t ? workLookup.get(it.dataset.t)?.spec : undefined);
       lb.classList.add('on');
     }
   });

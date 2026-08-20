@@ -1,0 +1,382 @@
+---
+// PorotonTable.astro
+---
+<div class="poroton-table-wrapper">
+  <!-- 원래 홈페이지 스타일 제목으로 복구 -->
+  <div class="poroton-header-section">
+    <h4 class="region-h" style="margin-top:30px">충전 POROTON — 모든 외벽 단열기준 충족</h4>
+  </div>
+    
+    <div class="region-badges">
+      <div class="region-badge">
+        <div class="badge-title">패시브하우스</div>
+        <div class="badge-uvalue">(U-value ≤ 0.15 W/m²K)</div>
+        <div class="badge-arrow">▼</div>
+      </div>
+      <div class="region-badge">
+        <div class="badge-title">중부1지역</div>
+        <div class="badge-uvalue">(U-value ≤ 0.17 W/m²K)</div>
+        <div class="badge-arrow">▼</div>
+      </div>
+      <div class="region-badge">
+        <div class="badge-title">중부2지역</div>
+        <div class="badge-uvalue">(U-value ≤ 0.24 W/m²K)</div>
+        <div class="badge-arrow">▼</div>
+      </div>
+    </div>
+
+    <div class="monolithic-bar">
+      단일벽시스템 (Monolithic Wall)
+    </div>
+  </div>
+
+  <!-- 모바일에서만 보이는 상단 블록 이미지 3종 -->
+  <div class="mobile-images">
+    <div class="m-img-box">
+      <img src="/images/490.png" alt="두께 490mm 단면" class="zoomable" title="클릭하여 확대" />
+      <span>490mm</span>
+    </div>
+    <div class="m-img-box">
+      <img src="/images/425.png" alt="두께 425mm 단면" class="zoomable" title="클릭하여 확대" />
+      <span>425mm</span>
+    </div>
+    <div class="m-img-box">
+      <img src="/images/365.png" alt="두께 365mm 단면" class="zoomable" title="클릭하여 확대" />
+      <span>365mm</span>
+    </div>
+  </div>
+
+  <div class="responsive-card-table">
+    <div class="rct-header">
+      <div class="rct-cell header-text">종류</div>
+      <div class="rct-cell header-text">열전도율(λ)</div>
+      <div class="rct-cell header-img">
+        <img src="/images/490.png" alt="490mm" class="zoomable" title="클릭하여 확대" />
+        <span>두께 490mm</span>
+      </div>
+      <div class="rct-cell header-img">
+        <img src="/images/425.png" alt="425mm" class="zoomable" title="클릭하여 확대" />
+        <span>두께 425mm</span>
+      </div>
+      <div class="rct-cell header-img">
+        <img src="/images/365.png" alt="365mm" class="zoomable" title="클릭하여 확대" />
+        <span>두께 365mm</span>
+      </div>
+    </div>
+    <div class="rct-row">
+      <div class="rct-cell rct-title" data-label="종류">POROTON-T6-P/MW</div>
+      <div class="rct-cell" data-label="열전도율(λ)">0.06 W/(mK)</div>
+      <div class="rct-cell" data-label="두께 490mm">-</div>
+      <div class="rct-cell" data-label="두께 425mm">0.134 W/m²K</div>
+      <div class="rct-cell" data-label="두께 365mm">0.155 W/m²K</div>
+    </div>
+    <div class="rct-row">
+      <div class="rct-cell rct-title" data-label="종류">POROTON-T7-P/MW</div>
+      <div class="rct-cell" data-label="열전도율(λ)">0.07 W/(mK)</div>
+      <div class="rct-cell" data-label="두께 490mm">0.136 W/m²K</div>
+      <div class="rct-cell" data-label="두께 425mm">0.156 W/m²K</div>
+      <div class="rct-cell" data-label="두께 365mm">0.180 W/m²K</div>
+    </div>
+    <div class="rct-row">
+      <div class="rct-cell rct-title" data-label="종류">POROTON-T8-P/MW</div>
+      <div class="rct-cell" data-label="열전도율(λ)">0.08 W/(mK)</div>
+      <div class="rct-cell" data-label="두께 490mm">-</div>
+      <div class="rct-cell" data-label="두께 425mm">0.177 W/m²K</div>
+      <div class="rct-cell" data-label="두께 365mm">0.203 W/m²K</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- 이미지 클릭 시 확대 팝업(모달) -->
+  <dialog id="img-modal-filled" class="image-modal">
+    <button class="close-btn" aria-label="닫기" id="close-modal-filled">&times;</button>
+    <img id="modal-img-filled" src="" alt="확대된 이미지" />
+  </dialog>
+</div>
+
+<script>
+  // Astro 컴포넌트 내 클라이언트 스크립트
+  const modalFilled = document.getElementById('img-modal-filled') as HTMLDialogElement;
+  const modalImgFilled = document.getElementById('modal-img-filled') as HTMLImageElement;
+  const closeBtnFilled = document.getElementById('close-modal-filled');
+
+  if (modalFilled && modalImgFilled && closeBtnFilled) {
+    // 문서 전체에서 zoomable 클래스를 찾아 이벤트 연결
+    // (PorotonTableUnfilled와 충돌하지 않도록 가장 가까운 모달을 열도록 하거나 이벤트를 각각 분리)
+    const wrapper = document.querySelector('.poroton-table-wrapper');
+    if(wrapper) {
+       wrapper.querySelectorAll('.zoomable').forEach(img => {
+         img.addEventListener('click', (e) => {
+           const target = e.target as HTMLImageElement;
+           // 현재 클릭된 요소가 이 컴포넌트 내부에 속하는지 확인
+           if(target.closest('#img-modal-filled') === null) {
+              modalImgFilled.src = target.src;
+              modalFilled.showModal();
+           }
+         });
+       });
+    }
+
+    closeBtnFilled.addEventListener('click', () => modalFilled.close());
+    modalFilled.addEventListener('click', (e) => {
+      if (e.target === modalFilled) modalFilled.close();
+    });
+  }
+</script>
+
+<style>
+  /* 줌(확대) 기능 CSS */
+  .zoomable {
+    cursor: zoom-in;
+    transition: transform 0.2s;
+  }
+  .zoomable:hover {
+    transform: scale(1.05);
+  }
+  .image-modal {
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    max-width: 90vw;
+    max-height: 90vh;
+    backdrop-filter: blur(5px);
+  }
+  .image-modal::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  .image-modal img {
+    display: block;
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+    background: #fff;
+  }
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    line-height: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .close-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .poroton-table-wrapper {
+    margin: 2rem 0;
+    font-family: inherit;
+  }
+
+  /* --- 추가된 헤더 섹션 CSS --- */
+  .poroton-header-section {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .poroton-main-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 2rem;
+    letter-spacing: -0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  .region-badges {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .region-badge {
+    background: linear-gradient(135deg, #7e22ce, #4c1d95); /* 퍼플 그라데이션 */
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    min-width: 140px;
+    border: 1px solid #3b0764;
+    text-align: center; /* 텍스트 중앙 정렬 추가 */
+  }
+  .badge-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+  .badge-uvalue {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .badge-arrow {
+    display: none; /* 슬림한 디자인을 위해 화살표 숨김 */
+  }
+  .monolithic-bar {
+    background-color: #9333ea; /* 밝은 퍼플 포인트 */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.4rem 0;
+    border-radius: 4px;
+    margin: 1rem 0 1rem 0;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center; /* 텍스트 중앙 정렬 추가 */
+  }
+  /* --------------------------- */
+  
+  .mobile-images {
+    display: none; /* PC에서는 숨김 */
+  }
+
+  .responsive-card-table {
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  }
+  .rct-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    background: #f8fafc;
+    font-weight: 600;
+    border-bottom: 2px solid #ddd;
+    color: #333;
+    align-items: end; /* 이미지가 위로 가고 텍스트가 바닥에 맞도록 */
+  }
+  .header-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 1.5rem !important;
+  }
+  .header-img img {
+    max-width: 140px;
+    height: 80px; /* 높이 슬림화 */
+    object-fit: contain;
+  }
+  .header-text {
+    align-self: center; /* 텍스트만 있는 헤더는 중앙 정렬 */
+  }
+  .rct-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+  }
+  .rct-row:hover {
+    background-color: #fafafa;
+  }
+  .rct-row:last-child {
+    border-bottom: none;
+  }
+  .rct-cell {
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    /* 모바일에서는 3개의 이미지를 상단에 나란히 배치 */
+    .mobile-images {
+      display: flex;
+      justify-content: space-around;
+      background: #f8fafc;
+      padding: 1.5rem 0.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e2e8f0;
+    }
+    .m-img-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #475569;
+    }
+    .m-img-box img {
+      width: 90px; /* 크기 상향 */
+      height: 90px; /* 크기 상향 */
+      object-fit: contain;
+    }
+
+    /* 모바일 헤더 섹션 대응 */
+    .poroton-main-title {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .region-badge {
+      width: 100%;
+      min-width: unset;
+    }
+    .monolithic-bar {
+      font-size: 1.1rem;
+      margin: 2rem 0 1rem 0;
+    }
+
+    /* 카드 레이아웃 전환 */
+    .responsive-card-table {
+      border: none;
+      background: transparent;
+      box-shadow: none;
+    }
+    .rct-header {
+      display: none; /* 헤더 숨김 */
+    }
+    .rct-row {
+      display: block;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      padding: 0 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    .rct-cell {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px dashed #e2e8f0;
+      text-align: right;
+    }
+    .rct-cell:last-child {
+      border-bottom: none;
+    }
+    .rct-cell::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #64748b;
+      margin-right: 1rem;
+      text-align: left;
+    }
+    
+    /* 종류(제품명) 셀은 상단 제목 스타일로 변경 */
+    .rct-title {
+      font-weight: 700;
+      color: #3b0764; /* FAKOHAUS 메인 컬러 */
+      font-size: 1.15rem;
+      border-bottom: 2px solid #f1f5f9;
+      padding: 1.2rem 0;
+      justify-content: center;
+      text-align: center;
+    }
+    .rct-title::before {
+      display: none; /* 모바일에서 '종류' 라벨 숨김 */
+    }
+  }
+</style>

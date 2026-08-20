@@ -1,0 +1,190 @@
+---
+// AlcWallJungbu2.astro
+---
+<div class="alc-wrapper">
+  <h4 class="region-h">중부2지역 <span class="uv-badge">U ≤ 0.24 W/m²K</span></h4>
+
+  <div class="alc-grid alc-grid-3">
+    <!-- Item 1 -->
+    <div class="alc-card">
+      <div class="alc-uvalue">0.218 W/(m²K)</div>
+      <img src="/images/alc-wall-35.png?v=2" alt="알시톱 + ALC (저비중) 35cm" class="zoomable-alc2" title="클릭하여 확대" onerror="this.src='https://placehold.co/180x240/e2e8f0/64748b?text=35cm'" />
+      <div class="alc-type">알시톱 + ALC (저비중)</div>
+    </div>
+    
+    <!-- Item 2 -->
+    <div class="alc-card">
+      <div class="alc-uvalue">0.205 W/(m²K)</div>
+      <img src="/images/alc-wall-36.png?v=2" alt="Miwo + ALC (0.5) 36cm" class="zoomable-alc2" title="클릭하여 확대" onerror="this.src='https://placehold.co/180x240/e2e8f0/64748b?text=36cm'" />
+      <div class="alc-type">Miwo + ALC (0.5)</div>
+    </div>
+    
+    <!-- Item 3 -->
+    <div class="alc-card">
+      <div class="alc-uvalue">0.223 W/(m²K)</div>
+      <img src="/images/alc-wall-36_ecominpor.png?v=2" alt="Ecominpor + ALC (0.5) 36cm" class="zoomable-alc2" title="클릭하여 확대" onerror="this.src='https://placehold.co/180x240/e2e8f0/64748b?text=36cm+Ecominpor'" />
+      <div class="alc-type">Ecominpor + ALC (0.5)</div>
+    </div>
+  </div>
+
+  <p class="table-note">서울특별시·대전광역시·세종특별자치시·인천광역시, 강원도(고성·속초·양양·강릉·동해·삼척), 경기도(연천·포천·가평·남양주·의정부·양주·동두천, 파주 제외), 충청남도·충청북도, 경상북도(봉화·청송·울진·영덕·포항·경주·청도·경산 제외), 전라북도, 경상남도(거창·함양)</p>
+
+</div>
+  
+  <!-- 이미지 클릭 시 확대 팝업(모달) -->
+  <dialog id="img-modal-alc2" class="image-modal">
+    <button class="close-btn" aria-label="닫기" id="close-modal-alc2">&times;</button>
+    <img id="modal-img-alc2" src="" alt="확대된 이미지" />
+  </dialog>
+</div>
+
+<script>
+  const modalAlc2 = document.getElementById('img-modal-alc2') as HTMLDialogElement;
+  const modalImgAlc2 = document.getElementById('modal-img-alc2') as HTMLImageElement;
+  const closeBtnAlc2 = document.getElementById('close-modal-alc2');
+
+  if (modalAlc2 && modalImgAlc2 && closeBtnAlc2) {
+    const wrapper = document.querySelectorAll('.zoomable-alc2');
+    wrapper.forEach(img => {
+      img.addEventListener('click', (e) => {
+        const target = e.target as HTMLImageElement;
+        modalImgAlc2.src = target.src;
+        modalAlc2.showModal();
+      });
+    });
+
+    closeBtnAlc2.addEventListener('click', () => modalAlc2.close());
+    modalAlc2.addEventListener('click', (e) => {
+      if (e.target === modalAlc2) modalAlc2.close();
+    });
+  }
+</script>
+
+<style>
+  .alc-wrapper {
+    margin: 5rem 0;
+    font-family: inherit;
+  }
+  .poroton-main-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  .alc-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .alc-card {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .alc-uvalue {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 0.4rem;
+  }
+  .alc-card img {
+    width: 100%;
+    max-width: 180px;
+    height: 220px;
+    object-fit: contain;
+    margin-bottom: 0.4rem;
+    cursor: zoom-in;
+    transition: transform 0.2s;
+  }
+  .alc-card img:hover {
+    transform: scale(1.05);
+  }
+  .alc-type {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+  }
+  
+  .alc-region-box {
+    margin-top: 1rem;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 1.2rem;
+  }
+  .region-box-title {
+    color: #3b82f6;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+  }
+  .region-box-desc {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.5;
+  }
+
+  /* 팝업 모달 스타일 */
+  .image-modal {
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    max-width: 90vw;
+    max-height: 90vh;
+    backdrop-filter: blur(5px);
+  }
+  .image-modal::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  .image-modal img {
+    display: block;
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+    background: #fff;
+  }
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    line-height: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .close-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  @media (max-width: 768px) {
+    .poroton-main-title {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .alc-grid-3 {
+      grid-template-columns: repeat(1, 1fr); /* 3개이므로 모바일에선 1줄로 길게 나열 */
+      gap: 2rem;
+    }
+    .alc-uvalue {
+      font-size: 1rem;
+    }
+    .alc-card img {
+      height: 180px;
+    }
+    .alc-type {
+      font-size: 0.95rem;
+    }
+  }
+</style>

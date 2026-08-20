@@ -67,6 +67,8 @@ export const nav: NavItem[] = [
       { label: '외벽시스템', href: '/spec#wall' },
       { label: '지붕시스템', href: '/spec#roof' },
       { label: '내벽마감시스템', href: '/spec#inner' },
+      { label: '창문시스템', href: '/spec#window' },
+      { label: '물받이시스템', href: '/spec#gutter' },
     ],
   },
   {

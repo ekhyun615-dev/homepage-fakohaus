@@ -1,0 +1,387 @@
+---
+// PorotonTableUnfilled.astro
+---
+<div class="poroton-table-wrapper">
+  <!-- 원래 홈페이지 스타일 제목으로 복구 -->
+  <div class="poroton-header-section">
+    <h4 class="region-h">비충전 POROTON 단면 <span class="uv-badge">정밀블럭 · 지역별 두께 선택</span></h4>
+  </div>
+  
+  <div class="region-badges">
+      <div class="region-badge">
+        <div class="badge-title">중부2지역</div>
+        <div class="badge-uvalue">(U-value ≤ 0.24 W/m²K)</div>
+        <div class="badge-arrow">▼</div>
+      </div>
+      <div class="region-badge">
+        <div class="badge-title">남부지역</div>
+        <div class="badge-uvalue">(U-value ≤ 0.32 W/m²K)</div>
+        <div class="badge-arrow">▼</div>
+      </div>
+      <div class="region-badge">
+        <div class="badge-title">제주도</div>
+        <div class="badge-uvalue">(U-value ≤ 0.41 W/m²K)</div>
+        <div class="badge-arrow">▼</div>
+      </div>
+    </div>
+
+    <div class="monolithic-bar">
+      단일벽시스템 (Monolithic Wall)
+    </div>
+  </div>
+
+  <!-- 모바일에서만 보이는 상단 블록 이미지 4종 -->
+  <div class="mobile-images">
+    <div class="m-img-box">
+      <img src="/images/비충진-425-1.png" alt="두께 425mm 단면" class="zoomable" title="클릭하여 확대" onerror="this.src='https://placehold.co/100x90/e2e8f0/64748b?text=425mm'" />
+      <span>425mm</span>
+    </div>
+    <div class="m-img-box">
+      <img src="/images/비충진-365-1.png" alt="두께 365mm 단면" class="zoomable" title="클릭하여 확대" onerror="this.src='https://placehold.co/100x90/e2e8f0/64748b?text=365mm'" />
+      <span>365mm</span>
+    </div>
+    <div class="m-img-box">
+      <img src="/images/비충진-300.png" alt="두께 300mm 단면" class="zoomable" title="클릭하여 확대" onerror="this.src='https://placehold.co/100x90/e2e8f0/64748b?text=300mm'" />
+      <span>300mm</span>
+    </div>
+    <div class="m-img-box">
+      <img src="/images/비충진-240.png" alt="두께 240mm 단면" class="zoomable" title="클릭하여 확대" onerror="this.src='https://placehold.co/100x90/e2e8f0/64748b?text=240mm'" />
+      <span>240mm</span>
+    </div>
+  </div>
+
+  <div class="responsive-card-table">
+    <div class="rct-header">
+      <div class="rct-cell header-text">종류</div>
+      <div class="rct-cell header-text">열전도율(λ)</div>
+      <div class="rct-cell header-img">
+        <img src="/images/비충진-425-1.png" alt="425mm" class="zoomable" title="클릭하여 확대" onerror="this.src='https://placehold.co/100x90/e2e8f0/64748b?text=425mm'" />
+        <span>두께 425mm</span>
+      </div>
+      <div class="rct-cell header-img">
+        <img src="/images/비충진-365-1.png" alt="365mm" class="zoomable" title="클릭하여 확대" onerror="this.src='https://placehold.co/100x90/e2e8f0/64748b?text=365mm'" />
+        <span>두께 365mm</span>
+      </div>
+      <div class="rct-cell header-img">
+        <img src="/images/비충진-300.png" alt="300mm" class="zoomable" title="클릭하여 확대" onerror="this.src='https://placehold.co/100x90/e2e8f0/64748b?text=300mm'" />
+        <span>두께 300mm</span>
+      </div>
+      <div class="rct-cell header-img">
+        <img src="/images/비충진-240.png" alt="240mm" class="zoomable" title="클릭하여 확대" onerror="this.src='https://placehold.co/100x90/e2e8f0/64748b?text=240mm'" />
+        <span>두께 240mm</span>
+      </div>
+    </div>
+    <div class="rct-row">
+      <div class="rct-cell rct-title" data-label="종류">POROTON-T8</div>
+      <div class="rct-cell" data-label="열전도율(λ)">0.08 W/(mK)</div>
+      <div class="rct-cell" data-label="두께 425mm">0.177 W/m²K</div>
+      <div class="rct-cell" data-label="두께 365mm">0.203 W/m²K</div>
+      <div class="rct-cell" data-label="두께 300mm">0.244 W/m²K</div>
+      <div class="rct-cell" data-label="두께 240mm">0.298 W/m²K</div>
+    </div>
+    <div class="rct-row">
+      <div class="rct-cell rct-title" data-label="종류">POROTON-T9</div>
+      <div class="rct-cell" data-label="열전도율(λ)">0.09 W/(mK)</div>
+      <div class="rct-cell" data-label="두께 425mm">0.197 W/m²K</div>
+      <div class="rct-cell" data-label="두께 365mm">0.227 W/m²K</div>
+      <div class="rct-cell" data-label="두께 300mm">0.271 W/m²K</div>
+      <div class="rct-cell" data-label="두께 240mm">-</div>
+    </div>
+    <div class="rct-row">
+      <div class="rct-cell rct-title" data-label="종류">POROTON-T10</div>
+      <div class="rct-cell" data-label="열전도율(λ)">0.10 W/(mK)</div>
+      <div class="rct-cell" data-label="두께 425mm">-</div>
+      <div class="rct-cell" data-label="두께 365mm">0.250 W/m²K</div>
+      <div class="rct-cell" data-label="두께 300mm">0.298 W/m²K</div>
+      <div class="rct-cell" data-label="두께 240mm">-</div>
+    </div>
+  </div>
+
+  <!-- 이미지 클릭 시 확대 팝업(모달) -->
+  <dialog id="img-modal-unfilled" class="image-modal">
+    <button class="close-btn" aria-label="닫기" id="close-modal-unfilled">&times;</button>
+    <img id="modal-img-unfilled" src="" alt="확대된 이미지" />
+  </dialog>
+</div>
+
+<script>
+  // Astro 컴포넌트 내 클라이언트 스크립트
+  const modal = document.getElementById('img-modal-unfilled') as HTMLDialogElement;
+  const modalImg = document.getElementById('modal-img-unfilled') as HTMLImageElement;
+  const closeBtn = document.getElementById('close-modal-unfilled');
+
+  if (modal && modalImg && closeBtn) {
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', (e) => {
+        const target = e.target as HTMLImageElement;
+        modalImg.src = target.src;
+        modal.showModal();
+      });
+    });
+
+    closeBtn.addEventListener('click', () => modal.close());
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.close();
+    });
+  }
+</script>
+
+<style>
+  /* 줌(확대) 기능 CSS */
+  .zoomable {
+    cursor: zoom-in;
+    transition: transform 0.2s;
+  }
+  .zoomable:hover {
+    transform: scale(1.05);
+  }
+  .image-modal {
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    max-width: 90vw;
+    max-height: 90vh;
+    backdrop-filter: blur(5px);
+  }
+  .image-modal::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  .image-modal img {
+    display: block;
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+    background: #fff; /* 투명 이미지 배경 방지 */
+  }
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    line-height: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .close-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .poroton-table-wrapper {
+    margin: 3rem 0;
+    font-family: inherit;
+  }
+
+  /* --- 헤더 섹션 CSS --- */
+  .poroton-header-section {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .poroton-main-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 2rem;
+    letter-spacing: -0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  .region-badges {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .region-badge {
+    background: linear-gradient(135deg, #7e22ce, #4c1d95);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    min-width: 140px;
+    border: 1px solid #3b0764;
+    text-align: center; /* 텍스트 중앙 정렬 추가 */
+  }
+  .badge-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+  .badge-uvalue {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .badge-arrow {
+    display: none;
+  }
+  .monolithic-bar {
+    background-color: #9333ea;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.4rem 0;
+    border-radius: 4px;
+    margin: 1rem 0 1rem 0;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center; /* 텍스트 중앙 정렬 추가 */
+  }
+  /* --------------------------- */
+  
+  .mobile-images {
+    display: none; /* PC에서는 숨김 */
+  }
+
+  .responsive-card-table {
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  }
+  .rct-header {
+    display: grid;
+    /* 6칸: 종류(1.5), 열전도율(1), 425(1), 365(1), 300(1), 240(1) */
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+    background: #f8fafc;
+    font-weight: 600;
+    border-bottom: 2px solid #ddd;
+    color: #333;
+    align-items: end; 
+  }
+  .header-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 1.5rem !important;
+  }
+  .header-img img {
+    max-width: 140px;
+    height: 80px;
+    object-fit: contain;
+  }
+  .header-text {
+    align-self: center;
+  }
+  .rct-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+  }
+  .rct-row:hover {
+    background-color: #fafafa;
+  }
+  .rct-row:last-child {
+    border-bottom: none;
+  }
+  .rct-cell {
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 768px) {
+    /* 모바일 헤더 섹션 대응 */
+    .poroton-main-title {
+      margin-bottom: 1.5rem;
+    }
+    .region-badge {
+      width: 100%;
+      min-width: unset;
+    }
+    .monolithic-bar {
+      font-size: 1.1rem;
+      margin: 2rem 0 1rem 0;
+    }
+
+    /* 모바일 4개 이미지 정렬 */
+    .mobile-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* 모바일에서 2x2 그리드로 변경하여 크게 표시 */
+      gap: 15px;
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e2e8f0;
+    }
+    .m-img-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #475569;
+    }
+    .m-img-box img {
+      width: 100%; /* 너비를 꽉 채워 크게 보이도록 */
+      max-width: 120px;
+      height: 90px;
+      object-fit: contain;
+    }
+
+    /* 카드 레이아웃 전환 */
+    .responsive-card-table {
+      border: none;
+      background: transparent;
+      box-shadow: none;
+    }
+    .rct-header {
+      display: none;
+    }
+    .rct-row {
+      display: block;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      padding: 0 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    .rct-cell {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px dashed #e2e8f0;
+      text-align: right;
+      font-size: 1rem;
+    }
+    .rct-cell:last-child {
+      border-bottom: none;
+    }
+    .rct-cell::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #64748b;
+      margin-right: 1rem;
+      text-align: left;
+    }
+    
+    .rct-title {
+      font-weight: 700;
+      color: #3b0764;
+      font-size: 1.15rem;
+      border-bottom: 2px solid #f1f5f9;
+      padding: 1.2rem 0;
+      justify-content: center;
+      text-align: center;
+    }
+    .rct-title::before {
+      display: none;
+    }
+  }
+</style>

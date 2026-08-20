@@ -1,0 +1,40 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('info');
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+type Props = { entry: CollectionEntry<'info'> };
+const { entry } = Astro.props;
+const { title, category, date } = entry.data;
+const { Content } = await entry.render();
+
+const dateStr = date.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={`${title} | FAKOHAUS`} description={entry.data.excerpt ?? title}>
+  <div class="sub-hero">
+    <div class="wrap">
+      <div class="crumb">Home / Download / 기술정보</div>
+      <h1 style="font-size:clamp(24px,3vw,36px)">{title}</h1>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap" style="max-width:760px">
+      <div class="article-meta">
+        <span class="cert-chip">{category}</span>
+        <span>{dateStr}</span>
+      </div>
+      <div class="article-body">
+        <Content />
+      </div>
+      <a class="btn btn-ghost" href="/downloads#info" style="margin-top:48px">← 기술정보 목록으로</a>
+    </div>
+  </div>
+</BaseLayout>

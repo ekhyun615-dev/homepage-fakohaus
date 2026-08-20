@@ -1,7 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-// TODO: 실제 PDF/DWG 파일 업로드 후 href를 public/downloads/* 경로로 연결
+const infoPosts: CollectionEntry<'info'>[] = (await getCollection('info')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const infoCategories = [...new Set(infoPosts.map((p) => p.data.category))];
 ---
 
 <BaseLayout
@@ -26,10 +30,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="tabpane on" data-pane="catalog">
     <div class="sec"><div class="wrap">
       <div class="dl-list">
-        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>FAKOHAUS 종합 카탈로그 2026</b><small>주택모델 25A/25B · 골조 · 사양 종합 안내 (24p)</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
-        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>CREATON 점토기와 카탈로그</b><small>기와 라인업 · 컬러 · 액세서리 (한글판)</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
-        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>GAULHOFER 창호 카탈로그</b><small>시스템창호 · 현관문 · 리프트슬라이딩 도어</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
-        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>alsecco / Caparol 외단열 마감 카탈로그</b><small>WDVS 시스템 · 마감 텍스처 · 컬러 차트</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>CREATON 점토기와 카탈로그</b><small>기와 라인업 · 컬러 · 액세서리</small></div><a class="btn btn-primary" href="/downloads/creaton-catalog-2024.pdf" download>다운로드</a></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>GAULHOFER 창호 카탈로그</b><small>시스템창호 · 현관문 · 리프트슬라이딩 도어</small></div><a class="btn btn-primary" href="/downloads/gaulhofer-catalog-2016.pdf" download>다운로드</a></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>GAULHOFER 원목 현관문 카탈로그</b><small>원목 현관문 라인업 · 사양</small></div><a class="btn btn-primary" href="/downloads/gaulhofer-wood-door-catalog.pdf" download>다운로드</a></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>독일 POROTON 주택 카탈로그</b><small>세라믹 점토블록 주택 소개 (한글판)</small></div><a class="btn btn-primary" href="/downloads/poroton-haus-catalog-kor.pdf" download>다운로드</a></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>독일 친환경 인테리어 마감재 카파그린 카탈로그</b><small>Caparol CapaGreen 라인업 (한글번역본)</small></div><a class="btn btn-primary" href="/downloads/capagreen-interior-catalog-kor.pdf" download>다운로드</a></div>
       </div>
     </div></div>
   </div>
@@ -37,35 +42,63 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="tabpane" data-pane="tech">
     <div class="sec"><div class="wrap">
       <div class="dl-list">
-        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>ALC 블록 조적 시공 표준 상세</b><small>줄눈 몰탈 · 보강 · 개구부 인방 디테일</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
-        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>POROTON 365 단일벽 시공 지침</b><small>1열 조적 · 앵커링 · 슬래브 접합부</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
-        <div class="dl"><div class="ic">DWG</div><div class="tx"><b>표준 단면 상세도 세트</b><small>외벽 · 지붕 · 기초 접합부 CAD 도면</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
-        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>외단열(WDVS) 시공 체크리스트</b><small>접착 · 파스너 · 메쉬 · 마감 공정별 검수 항목</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>POROTON HLz-Plan-T 기술자료</b><small>12-0.9-17.5 규격 정밀블럭 TDS</small></div><a class="btn btn-primary" href="/downloads/poroton-hlz-plan-t-12-09-175-tds.pdf" download>다운로드</a></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>POROTON T7-36.5-P 기술자료</b><small>퍼라이트 충진형 365mm 블록 TDS</small></div><a class="btn btn-primary" href="/downloads/poroton-t7-365-p-tds.pdf" download>다운로드</a></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>POROTON Plan-T9-36 기술자료</b><small>정밀블럭 T9, 365mm TDS</small></div><a class="btn btn-primary" href="/downloads/poroton-plan-t9-36-tds.pdf" download>다운로드</a></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>POROTON Plan-T10-30 기술자료</b><small>정밀블럭 T10, 300mm TDS</small></div><a class="btn btn-primary" href="/downloads/poroton-plan-t10-30-tds.pdf" download>다운로드</a></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>Maxit 825 Therm 기술자료</b><small>POROTON 단열 조적용 몰탈 TDS</small></div><a class="btn btn-primary" href="/downloads/maxit-825-therm-tds.pdf" download>다운로드</a></div>
+        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>Dünnbettmörtel Typ M IV 기술자료</b><small>박막 조적용 몰탈 TDS</small></div><a class="btn btn-primary" href="/downloads/duennbettmoertel-m4-tds.pdf" download>다운로드</a></div>
       </div>
     </div></div>
   </div>
 
   <div class="tabpane" data-pane="info">
     <div class="sec"><div class="wrap">
-      <div class="dl-list">
-        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>ALC vs POROTON 골조 비교 가이드</b><small>성능 · 비용 · 유지관리 관점 비교</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
-        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>독일 주택 단열 기준 해설</b><small>EnEV/GEG 기준과 국내 기준 비교</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
-        <div class="dl"><div class="ic">PDF</div><div class="tx"><b>완축 vs 반축, 무엇이 다른가</b><small>공사 범위 · 예산 · 일정 비교 안내</small></div><button class="btn btn-primary dl-btn">다운로드</button></div>
+      <div class="info-toolbar">
+        <select id="info-cat">
+          <option value="all">카테고리 전체</option>
+          {infoCategories.map((c) => <option value={c}>{c}</option>)}
+        </select>
+        <input id="info-search" type="text" placeholder="제목으로 검색" />
       </div>
-      <div class="faq">
-        <details><summary>자료는 누구나 받을 수 있나요?</summary><div class="a">네. 모든 자료는 예비 건축주님을 위해 무료로 공개합니다. 상세 견적 자료는 상담 후 별도 제공됩니다.</div></details>
-        <details><summary>도면(DWG) 파일은 어떤 용도인가요?</summary><div class="a">설계사무소·시공 파트너와의 협의용 표준 상세입니다. 실제 프로젝트에는 현장 조건에 맞춘 도면이 별도 작성됩니다.</div></details>
+      <div class="info-list" id="info-list">
+        {infoPosts.map((post) => (
+          <a class="info-row" href={`/info/${post.slug}`} data-cat={post.data.category} data-title={post.data.title}>
+            <span class="cat">{post.data.category}</span>
+            <span class="ttl">{post.data.title}</span>
+          </a>
+        ))}
+      </div>
+      <p class="info-empty" id="info-empty" style="display:none">검색 결과가 없습니다.</p>
+      <div class="faq" style="margin-top:56px">
+        <details><summary>자료는 누구나 볼 수 있나요?</summary><div class="a">네. 모든 기술정보는 예비 건축주님을 위해 무료로 공개합니다. 상세 견적 자료는 상담 후 별도 제공됩니다.</div></details>
+        <details><summary>더 궁금한 내용은 어디서 물어볼 수 있나요?</summary><div class="a">문의 페이지를 통해 남겨주시면 담당자가 확인 후 답변드립니다.</div></details>
       </div>
     </div></div>
   </div>
 </BaseLayout>
 
 <script>
-  // 실제 파일 연결 전까지 "준비 중" 안내로 대체
-  document.querySelectorAll<HTMLButtonElement>('.dl-btn').forEach((b) => {
-    b.addEventListener('click', () => {
-      b.textContent = '준비 중';
-      setTimeout(() => (b.textContent = '다운로드'), 1400);
+  // 기술정보 목록 카테고리·검색 필터
+  const catSel = document.getElementById('info-cat') as HTMLSelectElement | null;
+  const searchInput = document.getElementById('info-search') as HTMLInputElement | null;
+  const rows = document.querySelectorAll<HTMLElement>('.info-row');
+  const empty = document.getElementById('info-empty');
+
+  function applyInfoFilter() {
+    const cat = catSel?.value ?? 'all';
+    const q = (searchInput?.value ?? '').trim().toLowerCase();
+    let visible = 0;
+    rows.forEach((row) => {
+      const matchCat = cat === 'all' || row.dataset.cat === cat;
+      const matchQ = !q || (row.dataset.title ?? '').toLowerCase().includes(q);
+      const show = matchCat && matchQ;
+      row.style.display = show ? '' : 'none';
+      if (show) visible++;
     });
-  });
+    if (empty) empty.style.display = visible === 0 ? '' : 'none';
+  }
+
+  catSel?.addEventListener('change', applyInfoFilter);
+  searchInput?.addEventListener('input', applyInfoFilter);
 </script>

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 type Spec = [string, string];
+type GalleryItem = string | { src: string; caption: string };
 type Model = {
   id: string;
   eyebrow: string;
@@ -12,8 +13,12 @@ type Model = {
   specs: Spec[];
   hero: string;
   plans: { label: string; src: string }[];
-  gallery: string[];
+  exterior?: GalleryItem[];
+  gallery: GalleryItem[];
 };
+
+const galleryItem = (g: GalleryItem, fallback: string) =>
+  typeof g === 'string' ? { src: g, caption: fallback } : g;
 
 const models: Model[] = [
   {
@@ -30,10 +35,15 @@ const models: Model[] = [
       ['주택크기', '6.9m × 6.0m'],
       ['지붕각도', '40° 또는 15°'],
     ],
-    hero: 'https://lh3.googleusercontent.com/4isC4AkkyNtQX5UlKhIno8BJ9nzwDnIyKzduSYMd4mVDJfhuQdGOhH4X0CygHVEX6HPGlxyBVe1XIvT5KOFbqs1ybd0NKu0-S4iWPpYcFg=s0',
+    hero: '/images/fakohaus-25a-hero-purple.png',
     plans: [
-      { label: '1층 평면도', src: 'https://lh3.googleusercontent.com/nK_TrW8MOjzWRjfFuGNUkL_QICqn1svGCHkZR37jhZlGqzOeZZ1KvpSRwDJBtFSrq63d59FFsUk7nIemIqjq-3vI321qZk012HPNbUA=w700-h500-n' },
-      { label: '2층 평면도', src: 'https://lh3.googleusercontent.com/iNP_uKByhPX0bb_cGpUlAf3fQW5t_Dq5VtN1sDqNJ-NqK15jhc5luE6jYcHo1i-uuWKjbtNY1y21b7fM2-LpLj-MTXmW0FCv7p5CB-0=w700-h500-n' },
+      { label: '1층 평면도', src: '/images/25a_1f.png' },
+      { label: '2층 평면도', src: '/images/25a_2f.png' },
+    ],
+    exterior: [
+      { src: '/images/fakohaus-25a-ext-dark-brick.jpg', caption: '다크 브릭 파사드' },
+      { src: '/images/fakohaus-25a-ext-tan-brick.jpg', caption: '베이지 브릭 파사드' },
+      { src: '/images/fakohaus-25a-ext-white-stucco.jpg', caption: '화이트 스투코 파사드' },
     ],
     gallery: [
       'https://lh3.googleusercontent.com/S6kZ-A6_Miroys3e2dOEBRwloUXLt9GwYwTtqmDOtsISxpJErOAtRUVxJ66aAED0AS5DgFr3xOIA9XeBCASxVDnwO-zvOLGbwR2AdsVz5Q=w650-h370-n',
@@ -338,6 +348,7 @@ const models: Model[] = [
       </div>
       <div class="sec tint" style="padding-top:0;background:transparent">
         <div class="wrap">
+          <span class="eyebrow">Grunddaten</span>
           <h3 style="font-size:24px;margin-bottom:22px">기본 사양</h3>
           <table class="spec-table">
             {m.specs.map(([k, v]) => (
@@ -352,6 +363,7 @@ const models: Model[] = [
       {m.plans.length > 0 && (
         <div class="sec" style="padding-top:0">
           <div class="wrap">
+            <span class="eyebrow">Grundriss</span>
             <h3 style="font-size:24px;margin-bottom:22px">평면도</h3>
             <div class="model-plans">
               {m.plans.map((p) => (
@@ -364,14 +376,40 @@ const models: Model[] = [
           </div>
         </div>
       )}
-      {m.gallery.length > 0 && (
+      {m.exterior && m.exterior.length > 0 && (
         <div class="sec tint" style="padding-top:0;background:transparent">
           <div class="wrap">
+            <span class="eyebrow">Außenansicht</span>
+            <h3 style="font-size:24px;margin-bottom:22px">외부 이미지</h3>
+            <div class="model-gallery model-gallery--exterior">
+              {m.exterior.map((g) => {
+                const item = galleryItem(g, `${m.name} 외부 이미지`);
+                return (
+                  <figure>
+                    <img src={item.src} alt={item.caption} loading="lazy" />
+                    <figcaption>{item.caption}</figcaption>
+                  </figure>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+      {m.gallery.length > 0 && (
+        <div class="sec" style="padding-top:0">
+          <div class="wrap">
+            <span class="eyebrow">Innenansicht</span>
             <h3 style="font-size:24px;margin-bottom:22px">내부 이미지</h3>
             <div class="model-gallery">
-              {m.gallery.map((src) => (
-                <img src={src} alt={`${m.name} 내부 이미지`} loading="lazy" />
-              ))}
+              {m.gallery.map((g) => {
+                const item = galleryItem(g, `${m.name} 내부 이미지`);
+                return (
+                  <figure>
+                    <img src={item.src} alt={item.caption} loading="lazy" />
+                    <figcaption>{item.caption}</figcaption>
+                  </figure>
+                );
+              })}
             </div>
           </div>
         </div>
