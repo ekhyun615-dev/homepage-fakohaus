@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /contact/thanks/
+
+# 네이버 검색로봇
+User-agent: Yeti
+Allow: /
+Disallow: /contact/thanks/
+
+Sitemap: https://www.fakohaus.kr/sitemap-index.xml
