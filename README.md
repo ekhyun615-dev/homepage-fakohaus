@@ -30,7 +30,7 @@ npm run preview    # 빌드 결과 미리보기
 
 ## TODO
 
-- [ ] 실제 도메인 확정 후 `astro.config.mjs`의 `site` 값 교체 (현재 placeholder `https://www.fakohaus.com`)
+- [x] 실제 도메인 확정 후 `astro.config.mjs`의 `site` 값 교체 (`https://www.fakohaus.kr`)
 - [ ] 카카오톡 채널 URL 교체 (`src/data/site.ts`의 `kakaoUrl`, 현재 `#` 아닌 임시 링크)
 - [ ] 홈/모델/골조/사양 페이지의 SVG 플레이스홀더 일러스트 → 실사 이미지로 교체
 - [ ] 시공사례(`works.astro`) 예시 데이터 → 실제 사례 사진/데이터로 교체

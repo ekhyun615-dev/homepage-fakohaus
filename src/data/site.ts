@@ -9,8 +9,7 @@ export const company = {
   address: '경기도 김포시 태장로 741 경동미르웰시티 534호',
   hours: '평일 09:00 – 18:00 (주말·공휴일 휴무)',
   youtube: 'https://www.youtube.com/@FAKOHAUS',
-  // TODO: 실제 카카오톡 채널 URL로 교체
-  kakaoUrl: 'https://pf.kakao.com',
+  kakaoUrl: 'http://pf.kakao.com/_SkxhxnX',
 };
 
 export type NavChild = { label: string; href: string; children?: NavChild[] };

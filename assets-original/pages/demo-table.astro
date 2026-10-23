@@ -1,0 +1,260 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PorotonTable from '../components/PorotonTable.astro';
+import PorotonTableUnfilled from '../components/PorotonTableUnfilled.astro';
+import PorotonTableUvalue from '../components/PorotonTableUvalue.astro';
+import AlcWallJungbu1 from '../components/AlcWallJungbu1.astro';
+import AlcWallJungbu2 from '../components/AlcWallJungbu2.astro';
+import AlcWallNambu from '../components/AlcWallNambu.astro';
+---
+
+<BaseLayout title="표 모바일 최적화 데모">
+  <div class="demo-container">
+    <h1>모바일 화면 최적화 데모</h1>
+    <p>브라우저 창을 좌우로 줄이거나, 개발자 도구(F12) 모바일 보기로 3가지 방법의 차이를 확인해보세요.</p>
+
+    <div class="notice">
+      <p>💡 <strong>안내:</strong> 올려주신 원본 이미지의 <strong>'상단 블록 단면도 그림'</strong>은 <code>/public/images/</code> 폴더에 별도로 저장한 뒤 아래 이미지 영역에 넣으시면 됩니다. (현재는 회색 임시 이미지가 들어있습니다)</p>
+    </div>
+
+    <!-- Method 1 -->
+    <section class="demo-section">
+      <h2>방법 1: 그림 + HTML 표 (가로 스크롤)</h2>
+      <p>화면이 좁아지면 상단 그림과 표가 함께 묶여서 좌우로 스크롤됩니다. 그림과 표의 열이 항상 일치하게 유지됩니다.</p>
+      
+      <div class="table-container">
+        <!-- 상단 블록 그림 영역 (실제 이미지 경로로 변경 필요) -->
+        <div style="min-width: 700px; text-align: center; padding: 20px 0; background: #e2e8f0; margin-bottom: -1px; border-bottom: 1px solid #ddd;">
+           <span style="color: #64748b; font-weight: bold;">[ 여기에 상단 블록 그림 (490, 425, 365) 이미지 삽입 ]</span>
+        </div>
+        
+        <table class="poroton-table">
+          <thead>
+            <tr>
+              <th>종류</th>
+              <th>열전도율(λ)</th>
+              <th>두께 490mm</th>
+              <th>두께 425mm</th>
+              <th>두께 365mm</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>POROTON-T6-P/MW</td>
+              <td>0.06 W/(mK)</td>
+              <td>-</td>
+              <td>0.134 W/m²K</td>
+              <td>0.155 W/m²K</td>
+            </tr>
+            <tr>
+              <td>POROTON-T7-P/MW</td>
+              <td>0.07 W/(mK)</td>
+              <td>0.136 W/m²K</td>
+              <td>0.156 W/m²K</td>
+              <td>0.180 W/m²K</td>
+            </tr>
+            <tr>
+              <td>POROTON-T8-P/MW</td>
+              <td>0.08 W/(mK)</td>
+              <td>-</td>
+              <td>0.177 W/m²K</td>
+              <td>0.203 W/m²K</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Method 2 -->
+    <section class="demo-section">
+      <h2>방법 2: 반응형 통이미지 (원본 그대로 사용)</h2>
+      <p>올려주신 원본 통이미지 자체를 그대로 넣고, 화면 폭에 맞춰 줄어들게 하는 가장 단순한 방식입니다. 모바일에서는 글씨가 매우 작아질 수 있습니다.</p>
+      
+      <div style="text-align: center; background: #e2e8f0; padding: 40px 0; border-radius: 8px;">
+         <span style="color: #64748b; font-weight: bold;">[ 올려주신 원본 통이미지 전체 삽입 ]</span>
+         <p style="margin-top: 10px; font-size: 0.9em; color: #64748b;">(max-width: 100%; height: auto; 적용)</p>
+      </div>
+    </section>
+
+    <!-- Method 3 -->
+    <section class="demo-section">
+      <h2>방법 3: 반응형 카드 레이아웃 (최종 완성본)</h2>
+      <p>고객님이 넣어주신 3장의 이미지를 완벽하게 적용한 <strong>실제 컴포넌트</strong>입니다. PC와 모바일 양쪽에서 어떻게 최적화되어 보이는지 확인해보세요!</p>
+      
+      <h1 style="text-align:center; margin-bottom: 1rem;">POROTON 표 디자인 데모</h1>
+      <p style="text-align:center; color:#64748b; margin-bottom: 3rem;">PC에서는 넓게, 모바일에서는 예쁜 카드형으로 자동 변환됩니다.</p>
+      
+      <!-- 첫 번째 스크린샷: 충전 POROTON -->
+      <PorotonTable />
+      
+      <!-- 두 번째 스크린샷: 비충전 POROTON -->
+      <PorotonTableUnfilled />
+
+      <!-- 세 번째 스크린샷: POROTON U-Value -->
+      <PorotonTableUvalue />
+
+      <!-- 네 번째 스크린샷: 중부1지역 ALC 외벽시스템 -->
+      <AlcWallJungbu1 />
+
+      <!-- 다섯 번째: 중부2지역 ALC 외벽시스템 -->
+      <AlcWallJungbu2 />
+
+      <!-- 여섯 번째: 남부지역/제주도 ALC 외벽시스템 -->
+      <AlcWallNambu />
+
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .demo-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    font-family: inherit;
+  }
+  .demo-container h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #111;
+  }
+  .demo-container > p {
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  .notice {
+    background: #e0f2fe;
+    border-left: 4px solid #0284c7;
+    padding: 1rem 1.5rem;
+    margin-bottom: 3rem;
+    border-radius: 4px;
+    color: #0369a1;
+  }
+  .demo-section {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  }
+  .demo-section h2 {
+    font-size: 1.4rem;
+    color: #1f1d1a;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .demo-section > p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  /* Method 1 CSS */
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+  }
+  .table-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 4px;
+  }
+  .poroton-table {
+    width: 100%;
+    min-width: 700px; /* 그림과 줄을 맞추기 위한 최소 너비 */
+    border-collapse: collapse;
+    text-align: center;
+  }
+  .poroton-table th, .poroton-table td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  .poroton-table th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #333;
+  }
+
+  /* Method 3 CSS */
+  .responsive-card-table {
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-top: none;
+  }
+  .rct-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    background: #f8fafc;
+    font-weight: 600;
+    border-bottom: 2px solid #ddd;
+    color: #333;
+  }
+  .rct-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #eee;
+  }
+  .rct-row:last-child {
+    border-bottom: none;
+  }
+  .rct-cell {
+    padding: 1.2rem 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .demo-section {
+      padding: 1.5rem;
+    }
+    
+    /* Method 3 모바일 카드 디자인 */
+    .responsive-card-table {
+      border: none;
+      background: transparent;
+      border-radius: 0 !important;
+    }
+    .rct-header {
+      display: none; /* 헤더 숨김 */
+    }
+    .rct-row {
+      display: block;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      padding: 0 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+    .rct-cell {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px dashed #e2e8f0;
+      text-align: right;
+    }
+    .rct-cell:last-child {
+      border-bottom: none;
+    }
+    .rct-cell::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #64748b;
+      margin-right: 1rem;
+      text-align: left;
+    }
+  }
+</style>

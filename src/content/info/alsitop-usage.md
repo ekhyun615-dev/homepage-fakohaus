@@ -21,13 +21,13 @@ excerpt: "ALC 전용 외벽마감재 알시톱의 올바른 시공법과 특징�
 
 ALC 외벽 각진 모서리에는 충격에 대한 보호조치로 코너비드를 사용해야합니다. 전용코너비드는 마감두께를 10mm로 맞출 수 있게 합니다.
 
-![ALC 외벽 모서리 코너비드 시공](/images/alsitop-corner-bead.jpg)
+![ALC 외벽 모서리 코너비드 시공](/images/alsitop-corner-bead.webp)
 
 ### 4. 모든 벽체에 메쉬를 보강하실 필요가 없습니다.
 
 알시톱(Alsitop) 내에는 ALC 벽체의 미세한 균열을 방지하고자 인체에 전혀 무해한 섬유로 보강되어 있습니다. 창문, 현관문 주변과 설계상 균열이 발생할 가능성이 있는 부위에만 전용 유니버설메쉬로 보강하시면 됩니다.
 
-![창문 주변 유니버설메쉬 보강](/images/alsitop-mesh-window.jpg)
+![창문 주변 유니버설메쉬 보강](/images/alsitop-mesh-window.webp)
 
 ### 5. 초벌 마감 후 다음 날 정벌마감을 하실 수 있습니다.
 
@@ -39,7 +39,7 @@ ALC 외벽 각진 모서리에는 충격에 대한 보호조치로 코너비드�
 
 단, 선정한 색상으로 독일 Alsecco 공장에서 생산되기 때문에 40일 전에 주문하셔야 합니다. 사전주문제도를 활용하시면 할인혜택을 받으실 수 있습니다.
 
-![Alsecco 표준색상표](/images/alsitop-color-fan.jpg)
+![Alsecco 표준색상표](/images/alsitop-color-fan.webp)
 
 ### 7. 최종 문양의 정도를 선택하실 수 있습니다.
 
@@ -47,15 +47,15 @@ ALC 외벽 각진 모서리에는 충격에 대한 보호조치로 코너비드�
 
 <div class="img-row">
   <figure>
-    <img src="/images/alsitop-texture-standard.jpg" alt="알시톱(Alsitop) 표준 문양" />
+    <img src="/images/alsitop-texture-standard.webp" alt="알시톱(Alsitop) 표준 문양" />
     <figcaption>알시톱(Alsitop) — 표준 거칠기</figcaption>
   </figure>
   <figure>
-    <img src="/images/alsitop-texture-f.jpg" alt="알시톱 F 문양" />
+    <img src="/images/alsitop-texture-f.webp" alt="알시톱 F 문양" />
     <figcaption>알시톱(Alsitop) F — 평활한 마감면</figcaption>
   </figure>
   <figure>
-    <img src="/images/alsitop-texture-t.jpg" alt="알시톱 T 문양" />
+    <img src="/images/alsitop-texture-t.webp" alt="알시톱 T 문양" />
     <figcaption>알시톱(Alsitop) T — 가장 거친 마감면</figcaption>
   </figure>
 </div>
@@ -64,7 +64,7 @@ ALC 외벽 각진 모서리에는 충격에 대한 보호조치로 코너비드�
 
 ALC 블록 내벽 초벌플라스터인 인텍 S(Intect S)는 습기를 조절하고 ALC와 같은 숨쉬는 기능을 합니다. 시멘트 성분이 전혀 함유되어 있지 않은 친환경 마감재로 마감면이 매우 평활하여 친환경도장재(Alsecco 노롤)만으로도 아름다운 실내인테리어가 가능합니다.
 
-![인텍 S 내벽마감 시공](/images/alsitop-intect-s-apply.jpg)
+![인텍 S 내벽마감 시공](/images/alsitop-intect-s-apply.webp)
 
 ### 9. 작업이 매우 용이합니다.
 
@@ -74,4 +74,4 @@ ALC 블록 내벽 초벌플라스터인 인텍 S(Intect S)는 습기를 조절�
 
 (주)에이엘씨메이트는 독일 Alsecco의 한국 파트너입니다. 대리점이나 간접판매망을 이용하지 않습니다.
 
-![alsecco 알시톱 제품 포대](/images/alsecco-product-bag.jpg)
+![alsecco 알시톱 제품 포대](/images/alsecco-product-bag.webp)

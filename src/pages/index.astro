@@ -23,7 +23,7 @@ import { company } from '../data/site';
       </div>
       <div class="hero-visual">
         <div class="frame">
-          <img src="/images/main-img2.jpg" alt="독일식 목조 프레임 주택 외관" width="1264" height="848" loading="eager" />
+          <img src="/images/main-img2.webp" alt="독일식 목조 프레임 주택 외관" width="1264" height="848" loading="eager" />
         </div>
         <div class="hero-badge">
           <div class="num">20+</div>
@@ -46,7 +46,7 @@ import { company } from '../data/site';
         <a class="card" href="/frame#alc">
           <div class="thumb">
             <!-- ALC 친환경 무기질 블록 & 모던 하우스 -->
-            <img src="/images/alc-block.png" alt="친환경 ALC 무기질 조적체" width="400" height="250" loading="lazy" />
+            <img src="/images/alc-block.webp" alt="친환경 ALC 무기질 조적체" width="400" height="250" loading="lazy" />
           </div>
           <div class="body">
             <span class="tag">ALC Massivhaus</span>
@@ -58,7 +58,7 @@ import { company } from '../data/site';
         <a class="card" href="/frame#poroton">
           <div class="thumb">
             <!-- POROTON 다공질 점토벽돌 조적 구조 -->
-            <img src="/images/poroton-blocks.jpg" alt="독일 점토벽돌 Poroton Ziegel" width="400" height="250" loading="lazy" />
+            <img src="/images/poroton-blocks.webp" alt="독일 점토벽돌 Poroton Ziegel" width="400" height="250" loading="lazy" />
           </div>
           <div class="body">
             <span class="tag">Poroton Ziegel</span>
@@ -70,7 +70,7 @@ import { company } from '../data/site';
         <a class="card" href="/company#brand">
           <div class="thumb">
             <!-- 프리미엄 독일/오스트리아 기와 및 창호 자재 -->
-            <img src="/images/materials.jpg" alt="CREATON 기와 · GAULHOFER 창호" width="400" height="250" loading="lazy" />
+            <img src="/images/materials.webp" alt="CREATON 기와 · GAULHOFER 창호" width="400" height="250" loading="lazy" />
           </div>
           <div class="body">
             <span class="tag">Premium Import</span>
@@ -112,28 +112,8 @@ import { company } from '../data/site';
     </div>
   </div>
 
-  <!-- 고객 후기: 카드 슬라이더 -->
-  <div class="sec">
-    <div class="wrap">
-      <span class="eyebrow">Kundenstimmen</span>
-      <h2 class="sec-title">건축주가 말하는 FAKOHAUS</h2>
-      <div class="slider">
-        <div class="slider-track" id="revTrack">
-          <div class="review"><div class="stars">★★★★★</div><p>"겨울 난방비가 아파트 살 때보다 적게 나옵니다. ALC 벽체의 단열이 이 정도일 줄 몰랐어요. 결로가 전혀 없다는 게 가장 만족스럽습니다."</p><div class="who"><div class="av">김</div><div><b>김○수 님</b><small>경기 양평 · FAKOHAUS 25A</small></div></div></div>
-          <div class="review"><div class="stars">★★★★★</div><p>"반축으로 골조와 외피만 맡기고 내부는 직접 진행했는데, 공정마다 독일 기준으로 검수해 주셔서 믿음이 갔습니다."</p><div class="who"><div class="av">박</div><div><b>박○진 님</b><small>강원 원주 · POROTON 반축</small></div></div></div>
-          <div class="review"><div class="stars">★★★★★</div><p>"CREATON 기와와 GAULHOFER 창호를 실제로 보고 결정했습니다. 자재 하나하나 정품 서류까지 보여주시는 회사는 처음이었어요."</p><div class="who"><div class="av">이</div><div><b>이○호 님</b><small>충남 아산 · FAKOHAUS 25B</small></div></div></div>
-          <div class="review"><div class="stars">★★★★★</div><p>"은퇴 후 살 집이라 100년 가는 구조가 조건이었습니다. 조적식 독일 주택이라는 답을 여기서 찾았습니다."</p><div class="who"><div class="av">최</div><div><b>최○영 님</b><small>경기 김포 · ALC 완축</small></div></div></div>
-        </div>
-        <div class="slider-nav">
-          <button id="revPrev" aria-label="이전 후기">←</button>
-          <button id="revNext" aria-label="다음 후기">→</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- 유튜브 섹션 -->
-  <div class="sec tint">
+  <div class="sec">
     <div class="wrap">
       <div class="video-grid">
         <div class="video-frame">
@@ -163,10 +143,3 @@ import { company } from '../data/site';
     </div>
   </div>
 </BaseLayout>
-
-<script>
-  const track = document.getElementById('revTrack') as HTMLElement | null;
-  const step = () => (track?.querySelector('.review')?.clientWidth ?? 0) + 24;
-  document.getElementById('revNext')?.addEventListener('click', () => track?.scrollBy({ left: step(), behavior: 'smooth' }));
-  document.getElementById('revPrev')?.addEventListener('click', () => track?.scrollBy({ left: -step(), behavior: 'smooth' }));
-</script>

@@ -23,3 +23,6 @@ pnpm-debug.log*
 .DS_Store
 .vscode/
 *.log
+
+# WebP로 대체된 원본 이미지 보관함 (89MB) — 삭제 이전 커밋에서 복구 가능
+assets-original/images/

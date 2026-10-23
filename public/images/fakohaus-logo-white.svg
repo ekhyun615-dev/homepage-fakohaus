@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1633 258" role="img" aria-label="FAKOHAUS">
+  <defs>
+    <style>
+      .st0 { fill: #d79a4f; }
+      .st1 { fill: #ffffff; fill-rule: evenodd; }
+    </style>
+  </defs>
+  <path id="F" class="st1" d="M20,28h154v49h-96v37h90v48h-90v72H20V28Z"/>
+  <path id="house-A-1-ochre-interior" class="st0" d="M244,126l39-30,38,30v42h-77v-42Z"/>
+  <path id="house-A-1" class="st1" d="M172,234l40-128,72-86,70,86,38,128h-55l-9-31h-93l-8,31h-55ZM244,126l39-30,38,30v42h-77v-42Z"/>
+  <path id="K" class="st1" d="M405,28h57v79l73-79h71l-93,99,93,107h-72l-72-85v85h-57V28Z"/>
+  <path id="O" class="st1" d="M814,131c0,61-49,107-111,107s-112-46-112-107,49-107,112-107,111,45,111,107ZM757,131c0-32-23-54-54-54s-55,22-55,54,24,54,55,54,54-22,54-54Z"/>
+  <path id="H" class="st1" d="M831,28h57v77h68V28h57v206h-57v-79h-68v79h-57V28Z"/>
+  <g id="Group_2">
+    <path id="house-A-2-ochre-interior" class="st0" d="M1092,126l39-30,38,30v42h-77v-42Z"/>
+    <path id="house-A-2" class="st1" d="M1020,234l40-128,72-86,70,86,38,128h-55l-9-31h-93l-8,31h-55ZM1092,126l39-30,38,30v42h-77v-42Z"/>
+  </g>
+  <path id="U" class="st1" d="M1246,28h56v117c0,26,13,42,36,42s36-16,36-42V28h57v121c0,57-36,89-93,89s-92-32-92-89V28Z"/>
+  <path id="S" class="st1" d="M1605,50l-30,42c-15-13-33-19-47-19-15,0-23,6-23,15s10,13,33,21c44,15,75,30,75,66,0,41-33,63-80,63-37,0-70-13-94-32l31-41c20,16,42,25,62,25,10,0,15-6,15-13,0-10-9-14-31-21-43-14-69-30-69-66,0-40,33-66,81-66,29,0,56,10,77,26Z"/>
+</svg>
