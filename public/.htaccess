@@ -1,13 +1,26 @@
+# ============================================================
+#  [중요] SSL 적용 후 아래 "리다이렉트" 블록의 # 를 지우세요
+#
+#  지금은 카페24 보안서버(SSL) 적용 전이라 두 규칙을 꺼둔 상태입니다.
+#  SSL 없이 켜두면 https 로 보냈다가 연결이 끊겨 사이트 전체가 막힙니다.
+#
+#  순서:  ① 이 파일 그대로 업로드 → http 로 동작 확인
+#         ② 카페24에서 무료 SSL 신청·적용
+#         ③ 아래 7줄 맨 앞의 "# " 제거 후 이 파일만 다시 업로드
+# ============================================================
+
 RewriteEngine On
 
+# ---- 리다이렉트 (SSL 적용 후 주석 해제) ----
 # HTTPS 강제
-RewriteCond %{HTTPS} !=on
-RewriteCond %{HTTP:X-Forwarded-Proto} !=https
-RewriteRule ^(.*)$ https://www.fakohaus.kr/$1 [R=301,L]
+# RewriteCond %{HTTPS} !=on
+# RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+# RewriteRule ^(.*)$ https://www.fakohaus.kr/$1 [R=301,L]
 
 # non-www → www 통합 (중복 색인 방지)
-RewriteCond %{HTTP_HOST} ^fakohaus\.kr$ [NC]
-RewriteRule ^(.*)$ https://www.fakohaus.kr/$1 [R=301,L]
+# RewriteCond %{HTTP_HOST} ^fakohaus\.kr$ [NC]
+# RewriteRule ^(.*)$ https://www.fakohaus.kr/$1 [R=301,L]
+# ---- 리다이렉트 끝 ----
 
 ErrorDocument 404 /404.html
 
